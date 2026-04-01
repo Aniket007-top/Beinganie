@@ -1,0 +1,60 @@
+Beinganie
+
+Project type:
+Next.js App Router educational platform
+
+Brand:
+Beinganie
+
+Core topics:
+Artificial Intelligence
+Internet of Things
+Robotics
+
+Current status:
+The project has been migrated into a Next.js + Tailwind CSS application inside this folder.
+The active application code is in the `app`, `components`, and `lib` directories.
+
+Main implemented features:
+- Professional homepage with hero section, search UI, dark/light toggle, and category navigation
+- Dedicated subject routes:
+  - `/ai`
+  - `/iot`
+  - `/robotics`
+- Dedicated level routes:
+  - `/ai/beginner`, `/ai/intermediate`, `/ai/advanced`
+  - `/iot/beginner`, `/iot/intermediate`, `/iot/advanced`
+  - `/robotics/beginner`, `/robotics/intermediate`, `/robotics/advanced`
+- Reusable curriculum layout and level page components
+- Arcade Lab features:
+  - AI Lab: Train the Model
+  - IoT Lab: Smart Home Architect
+  - Robotics Lab: Code the Rover
+- Local progress behavior using browser localStorage
+- Resource hub sections and AI notes link
+
+Important note:
+Legacy static template files such as `index.html`, `about.html`, `class.html`, `contact.html`, old `css`, old `js`, and `lib` assets are still present in the folder, but the main updated project now runs through Next.js.
+
+Important Next.js files:
+- `package.json`
+- `app/layout.tsx`
+- `app/page.tsx`
+- `app/ai/page.tsx`
+- `app/iot/page.tsx`
+- `app/robotics/page.tsx`
+- `components/hero-section.tsx`
+- `components/subject-page.tsx`
+- `components/level-page.tsx`
+- `lib/learning-paths.ts`
+
+Run locally:
+1. `npm install`
+2. `npm run dev`
+
+Production checks:
+- `npm run lint`
+- `npm run build`
+
+Latest verification:
+The project builds successfully with all current routes.

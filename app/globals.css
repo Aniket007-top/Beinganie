@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 240 244 255;
+  --foreground: 10 16 30;
+  --muted: 76 91 124;
+  --border: 201 213 255;
+  --card: 248 251 255;
+}
+
+.dark {
+  --background: 3 7 18;
+  --foreground: 229 236 255;
+  --muted: 151 163 191;
+  --border: 30 41 71;
+  --card: 10 16 32;
+}
+
+* {
+  @apply border-border;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+  background-image:
+    radial-gradient(circle at top, rgba(79, 70, 229, 0.18), transparent 24%),
+    radial-gradient(circle at 100% 0%, rgba(16, 185, 129, 0.12), transparent 20%),
+    linear-gradient(to bottom, rgba(255,255,255,0.42), rgba(255,255,255,0));
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent 85%);
+  z-index: -1;
+}
+
+a {
+  @apply transition-colors duration-200;
+}
+
+button,
+a {
+  @apply transition-all duration-300;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.dark body,
+.dark {
+  background-image:
+    radial-gradient(circle at top, rgba(79, 70, 229, 0.22), transparent 22%),
+    radial-gradient(circle at 100% 0%, rgba(16, 185, 129, 0.12), transparent 18%),
+    linear-gradient(to bottom, rgba(2,6,23,0.6), rgba(2,6,23,0));
+}
+
+::selection {
+  @apply bg-ai/20 text-foreground;
+}
