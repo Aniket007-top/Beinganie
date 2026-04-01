@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Orbitron, Space_Grotesk } from "next/font/google";
+import { Share_Tech_Mono, Space_Grotesk, VT323 } from "next/font/google";
 
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -9,9 +9,16 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-sans"
 });
 
-const orbitron = Orbitron({
+const vt323 = VT323({
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-display"
+});
+
+const shareTechMono = Share_Tech_Mono({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-mono"
 });
 
 export const metadata: Metadata = {
@@ -27,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${spaceGrotesk.variable} ${orbitron.variable}`}>
+      <body className={`${spaceGrotesk.variable} ${vt323.variable} ${shareTechMono.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -14,6 +14,7 @@ export function HeroSection() {
   return (
     <section className="relative overflow-hidden rounded-[2rem] border border-indigo-200/70 bg-hero-grid px-6 py-16 shadow-glow dark:border-indigo-500/20 dark:bg-slate-950 sm:px-10 lg:px-12">
       <div className="absolute inset-0 bg-cyber-grid bg-[size:36px_36px] opacity-40 [mask-image:linear-gradient(to_bottom,rgba(255,255,255,0.35),transparent_80%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(2,6,23,0.24),rgba(15,23,42,0.1))] dark:bg-[linear-gradient(135deg,rgba(2,6,23,0.55),rgba(2,6,23,0.15))]" />
       <div className="absolute -left-24 top-10 h-56 w-56 rounded-full bg-ai/20 blur-3xl" />
       <div className="absolute -right-24 top-24 h-56 w-56 rounded-full bg-iot/20 blur-3xl" />
       <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
@@ -23,16 +24,16 @@ export function HeroSection() {
           transition={{ duration: 0.55 }}
           className="relative z-10 space-y-8"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-ai/20 bg-white/70 px-4 py-2 font-mono text-sm font-semibold text-ai shadow-sm dark:bg-slate-950/60">
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-slate-950/85 px-4 py-2 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300 shadow-sm">
             <Sparkles className="h-4 w-4" />
             Professional, free, project-based deep-tech learning
           </div>
 
-          <div className="space-y-5">
-            <h1 className="max-w-4xl font-display text-4xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl">
+          <div className="matrix-surface max-w-4xl rounded-[1.75rem] border border-emerald-400/20 p-6 shadow-neon sm:p-8">
+            <h1 className="matrix-title max-w-4xl font-display text-5xl font-normal leading-[0.95] text-emerald-300 sm:text-6xl lg:text-7xl">
               Learn Future Technologies for Free - AI, IoT & Robotics
             </h1>
-            <p className="max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
               Beinganie is a modern learning platform designed to teach Artificial
               Intelligence, Internet of Things, and Robotics from simple concepts
               to engineer-level systems using free tools, open-source workflows,
@@ -43,7 +44,7 @@ export function HeroSection() {
           <div className="flex flex-wrap gap-4">
             <Link
               href="#tracks"
-              className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 dark:bg-white dark:text-slate-950"
+              className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-3 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-slate-950 transition hover:-translate-y-0.5 hover:bg-emerald-300"
             >
               Start Learning
             </Link>
@@ -51,7 +52,7 @@ export function HeroSection() {
               href="https://drive.google.com/file/d/1L4JoGFUpEHVP1RVwZkXtDQOJHEBvqM-Z/view?usp=drivesdk"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-ai/20 bg-gradient-to-r from-ai to-indigo-500 px-6 py-3 font-mono text-sm font-semibold uppercase tracking-[0.16em] text-white shadow-neon transition hover:-translate-y-0.5 hover:from-indigo-500 hover:to-cyan-500"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-emerald-400/30 bg-slate-950/85 px-6 py-3 font-mono text-sm font-semibold uppercase tracking-[0.16em] text-emerald-200 shadow-neon transition hover:-translate-y-0.5 hover:border-emerald-300 hover:text-white"
             >
               <Download className="h-4 w-4" />
               Download AI Notes
@@ -62,12 +63,12 @@ export function HeroSection() {
             {heroMetrics.map((item) => (
               <div
                 key={item.label}
-                className="rounded-2xl border border-indigo-200/70 bg-white/70 p-4 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70"
+                className="rounded-2xl border border-emerald-400/20 bg-slate-950/75 p-4 shadow-sm backdrop-blur"
               >
-                <p className="text-2xl font-semibold text-slate-950 dark:text-white">
+                <p className="font-display text-3xl font-normal text-emerald-300">
                   {item.value}
                 </p>
-                <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                <p className="mt-1 text-sm text-slate-300">
                   {item.label}
                 </p>
               </div>
@@ -81,11 +82,11 @@ export function HeroSection() {
           transition={{ duration: 0.55, delay: 0.1 }}
           className="relative z-10 grid gap-4"
         >
-          <div className="rounded-[1.75rem] border border-indigo-500/20 bg-slate-950/95 p-6 text-white shadow-neon">
+          <div className="matrix-surface rounded-[1.75rem] border border-emerald-400/20 p-6 text-white shadow-neon">
             <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-ai/20 ring-1 ring-inset ring-ai/30">
               <Orbit className="h-6 w-6 text-indigo-300" />
             </div>
-            <h2 className="font-display text-2xl font-semibold">Mission Control</h2>
+            <h2 className="font-display text-3xl font-normal text-emerald-300">Mission Control</h2>
             <p className="mt-3 text-sm leading-7 text-slate-300">
               Build strong foundations, develop real systems, and create
               technologies that serve humanity with ethics, clarity, and skill.

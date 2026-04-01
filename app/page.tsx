@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+import Image from "next/image";
 import { BrainCircuit, Cpu, Radar } from "lucide-react";
 
 import { CategoryCard } from "@/components/category-card";
@@ -17,7 +19,12 @@ const categories = [
       "Start with real-world AI ideas and grow into machine learning, deep learning, LLM pipelines, MLOps, and ethical deployment.",
     href: "/ai",
     icon: BrainCircuit,
-    accent: "ai" as const
+    accent: "ai" as const,
+    image:
+      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Artificial%20neural%20network.svg",
+    imageAlt: "Artificial neural network diagram from Wikimedia Commons",
+    imageCreditHref:
+      "https://commons.wikimedia.org/wiki/File:Artificial_neural_network.svg"
   },
   {
     title: "Internet of Things",
@@ -25,7 +32,12 @@ const categories = [
       "Learn sensors, microcontrollers, connectivity, cloud dashboards, automation logic, and edge computing using free tools.",
     href: "/iot",
     icon: Cpu,
-    accent: "iot" as const
+    accent: "iot" as const,
+    image:
+      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Internet%20of%20Things.svg",
+    imageAlt: "Internet of Things concept illustration from Wikimedia Commons",
+    imageCreditHref:
+      "https://commons.wikimedia.org/wiki/File:Internet_of_Things.svg"
   },
   {
     title: "Robotics",
@@ -33,7 +45,12 @@ const categories = [
       "Study actuators, control systems, mechatronics, autonomy, and hands-on robot logic through interactive labs.",
     href: "/robotics",
     icon: Radar,
-    accent: "robotics" as const
+    accent: "robotics" as const,
+    image:
+      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Controlling%20robotic%20arm%20ESA15746126.jpeg",
+    imageAlt: "Robotic arm image from Wikimedia Commons",
+    imageCreditHref:
+      "https://commons.wikimedia.org/wiki/File:Controlling_robotic_arm_ESA15746126.jpeg"
   }
 ];
 
@@ -125,6 +142,58 @@ export default function HomePage() {
               <JourneyStep index="04" title="Deepen with Resources" description="Use notes, tools, and subject pages to move from exploration to project building." />
             </div>
           </aside>
+        </section>
+
+        <section className="rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8">
+          <div className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-emerald-500">
+                Visual Classroom
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-normal tracking-wide text-slate-950 dark:text-white">
+                Learn with diagrams, process visuals, and system snapshots
+              </h2>
+              <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
+                Strong teaching is easier when learners can see the system. These
+                visual panels combine free web-hosted diagrams with simple graph-style
+                summaries to show how AI pipelines, IoT architecture, and robotics
+                control loops work.
+              </p>
+            </div>
+          </div>
+
+          <div className="figure-grid lg:grid-cols-3">
+            <FigureCard
+              title="AI learning pipeline"
+              description="Students can see how data quality, model design, evaluation, and deployment all connect in one system."
+              image="https://commons.wikimedia.org/wiki/Special:Redirect/file/Artificial%20neural%20network.svg"
+              imageAlt="Artificial neural network diagram"
+              imageSource="https://commons.wikimedia.org/wiki/File:Artificial_neural_network.svg"
+              accent="ai"
+            >
+              <AiBars />
+            </FigureCard>
+            <FigureCard
+              title="IoT architecture flow"
+              description="This helps learners understand that IoT is not just a sensor, but a full chain from sensing to cloud insight and user action."
+              image="https://commons.wikimedia.org/wiki/Special:Redirect/file/Internet%20of%20Things.svg"
+              imageAlt="Internet of Things architecture illustration"
+              imageSource="https://commons.wikimedia.org/wiki/File:Internet_of_Things.svg"
+              accent="iot"
+            >
+              <IotFlow />
+            </FigureCard>
+            <FigureCard
+              title="Robotics control and motion"
+              description="A robot becomes easier to understand when students can map perception, planning, control, and movement as one loop."
+              image="https://commons.wikimedia.org/wiki/Special:Redirect/file/Controlling%20robotic%20arm%20ESA15746126.jpeg"
+              imageAlt="Robotic arm photograph"
+              imageSource="https://commons.wikimedia.org/wiki/File:Controlling_robotic_arm_ESA15746126.jpeg"
+              accent="robotics"
+            >
+              <RoboticsLoop />
+            </FigureCard>
+          </div>
         </section>
 
         <LearningModule
@@ -389,6 +458,141 @@ export default function HomePage() {
         </footer>
       </div>
     </main>
+  );
+}
+
+function FigureCard({
+  title,
+  description,
+  image,
+  imageAlt,
+  imageSource,
+  accent,
+  children
+}: {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  imageSource: string;
+  accent: "ai" | "iot" | "robotics";
+  children: ReactNode;
+}) {
+  const accentLabel = {
+    ai: "AI",
+    iot: "IoT",
+    robotics: "Robotics"
+  }[accent];
+
+  return (
+    <article className="figure-card p-4 sm:p-5">
+      <div className="overflow-hidden rounded-[1.2rem] border border-indigo-200/70 dark:border-indigo-500/20">
+        <Image
+          src={image}
+          alt={imageAlt}
+          width={1200}
+          height={720}
+          className="h-52 w-full object-cover"
+          unoptimized
+        />
+      </div>
+      <div className="mt-4">
+        <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+          {accentLabel} visual
+        </p>
+        <h3 className="mt-2 font-display text-2xl font-normal tracking-wide text-slate-950 dark:text-white">
+          {title}
+        </h3>
+        <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
+          {description}
+        </p>
+      </div>
+      <div className="mt-5">{children}</div>
+      <a
+        href={imageSource}
+        target="_blank"
+        rel="noreferrer"
+        className="mt-4 inline-flex font-mono text-[11px] uppercase tracking-[0.2em] text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
+      >
+        Source: Wikimedia Commons
+      </a>
+    </article>
+  );
+}
+
+function AiBars() {
+  const items = [
+    { label: "Data", value: "92%", width: "w-[92%]" },
+    { label: "Model", value: "78%", width: "w-[78%]" },
+    { label: "Eval", value: "64%", width: "w-[64%]" },
+    { label: "Deploy", value: "52%", width: "w-[52%]" }
+  ];
+
+  return (
+    <div className="rounded-2xl border border-indigo-200/70 bg-white/70 p-4 dark:border-indigo-500/20 dark:bg-slate-900/70">
+      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ai">
+        Pipeline graph
+      </p>
+      <div className="mt-4 space-y-3">
+        {items.map((item) => (
+          <div key={item.label}>
+            <div className="mb-1 flex items-center justify-between text-xs uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+              <span>{item.label}</span>
+              <span>{item.value}</span>
+            </div>
+            <div className="h-3 rounded-full bg-slate-200/80 dark:bg-slate-800">
+              <div className={`h-full rounded-full bg-gradient-to-r from-ai to-cyan-400 ${item.width}`} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function IotFlow() {
+  const steps = ["Sensor", "Edge", "Gateway", "Cloud", "App"];
+
+  return (
+    <div className="rounded-2xl border border-indigo-200/70 bg-white/70 p-4 dark:border-indigo-500/20 dark:bg-slate-900/70">
+      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-iot">
+        System flow
+      </p>
+      <div className="mt-4 flex flex-wrap items-center gap-2">
+        {steps.map((step, index) => (
+          <div key={step} className="flex items-center gap-2">
+            <div className="rounded-full border border-iot/20 bg-iot-soft px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] text-iot">
+              {step}
+            </div>
+            {index < steps.length - 1 ? (
+              <div className="h-px w-6 bg-gradient-to-r from-iot to-emerald-300" />
+            ) : null}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function RoboticsLoop() {
+  const loop = ["Sense", "Plan", "Control", "Move"];
+
+  return (
+    <div className="rounded-2xl border border-indigo-200/70 bg-white/70 p-4 dark:border-indigo-500/20 dark:bg-slate-900/70">
+      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-robotics">
+        Control loop
+      </p>
+      <div className="mt-4 grid grid-cols-2 gap-3">
+        {loop.map((item) => (
+          <div
+            key={item}
+            className="rounded-2xl border border-robotics/20 bg-robotics-soft px-4 py-5 text-center font-mono text-xs uppercase tracking-[0.16em] text-robotics"
+          >
+            {item}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

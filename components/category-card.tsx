@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import { ArrowUpRight } from "lucide-react";
@@ -8,6 +9,9 @@ type CategoryCardProps = {
   href: string;
   icon: LucideIcon;
   accent: "ai" | "iot" | "robotics";
+  image: string;
+  imageAlt: string;
+  imageCreditHref: string;
 };
 
 const accentStyles = {
@@ -21,13 +25,26 @@ export function CategoryCard({
   description,
   href,
   icon: Icon,
-  accent
+  accent,
+  image,
+  imageAlt,
+  imageCreditHref
 }: CategoryCardProps) {
   return (
     <Link
       href={href}
       className="group rounded-3xl border border-indigo-200/70 bg-white/75 p-6 shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-ai/40 hover:shadow-neon dark:border-indigo-500/20 dark:bg-slate-950/70"
     >
+      <div className="mb-5 overflow-hidden rounded-[1.4rem] border border-indigo-200/70 bg-slate-950/5 dark:border-indigo-500/20 dark:bg-slate-900/70">
+        <Image
+          src={image}
+          alt={imageAlt}
+          width={900}
+          height={540}
+          className="h-44 w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+          unoptimized
+        />
+      </div>
       <div
         className={`mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl border ring-1 ring-inset ring-white/40 ${accentStyles[accent]}`}
       >
@@ -43,7 +60,11 @@ export function CategoryCard({
         <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">
           {description}
         </p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
+          Visual source: Wikimedia Commons
+        </p>
       </div>
+      <span className="sr-only">{imageCreditHref}</span>
     </Link>
   );
 }
