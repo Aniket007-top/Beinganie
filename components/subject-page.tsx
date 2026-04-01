@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpen, LucideIcon } from "lucide-react";
 
+import { ChapterVisualPanel } from "@/components/chapter-visual-panel";
 import { getLevelSlug, type LearningPath } from "@/lib/learning-paths";
 
 const accentClassMap = {
@@ -165,6 +166,11 @@ export function SubjectPage({ path }: { path: LearningPath }) {
                         </li>
                       ))}
                     </ul>
+                    <ChapterVisualPanel
+                      accent={path.accent}
+                      sectionTitle={section.title}
+                      index={index}
+                    />
                   </div>
                 ))}
               </div>

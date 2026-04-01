@@ -1152,7 +1152,7 @@ export const learningPaths: LearningPath[] = [
   }
 ];
 
-export type { LearningPath, LevelContent, LessonSection, ResourceLink };
+export type { Accent, LearningPath, LevelContent, LessonSection, ResourceLink };
 
 export function getLearningPath(slug: LearningPath["slug"]) {
   return learningPaths.find((path) => path.slug === slug);
