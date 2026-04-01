@@ -2,23 +2,33 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpen, LucideIcon } from "lucide-react";
 
 import { ChapterVisualPanel } from "@/components/chapter-visual-panel";
+import { SiteFooter } from "@/components/site-footer";
 import { getLevelSlug, type LearningPath } from "@/lib/learning-paths";
 
 const accentClassMap = {
   ai: {
     chip: "border-ai/20 bg-ai-soft text-ai",
     button: "bg-ai hover:bg-indigo-700 text-white",
-    soft: "bg-ai-soft text-ai border-ai/20"
+    soft: "bg-ai-soft text-ai border-ai/20",
+    shell:
+      "border-ai/20 bg-[radial-gradient(circle_at_top_left,rgba(79,70,229,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.78),rgba(255,255,255,0.72))] dark:bg-[radial-gradient(circle_at_top_left,rgba(79,70,229,0.18),transparent_28%),linear-gradient(180deg,rgba(2,6,23,0.88),rgba(15,23,42,0.76))]",
+    label: "text-ai"
   },
   iot: {
     chip: "border-iot/20 bg-iot-soft text-iot",
     button: "bg-iot hover:bg-emerald-700 text-white",
-    soft: "bg-iot-soft text-iot border-iot/20"
+    soft: "bg-iot-soft text-iot border-iot/20",
+    shell:
+      "border-iot/20 bg-[radial-gradient(circle_at_top_left,rgba(5,150,105,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.78),rgba(255,255,255,0.72))] dark:bg-[radial-gradient(circle_at_top_left,rgba(5,150,105,0.18),transparent_28%),linear-gradient(180deg,rgba(2,6,23,0.88),rgba(15,23,42,0.76))]",
+    label: "text-iot"
   },
   robotics: {
     chip: "border-robotics/20 bg-robotics-soft text-robotics",
     button: "bg-robotics hover:bg-amber-700 text-white",
-    soft: "bg-robotics-soft text-robotics border-robotics/20"
+    soft: "bg-robotics-soft text-robotics border-robotics/20",
+    shell:
+      "border-robotics/20 bg-[radial-gradient(circle_at_top_left,rgba(217,119,6,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.78),rgba(255,255,255,0.72))] dark:bg-[radial-gradient(circle_at_top_left,rgba(217,119,6,0.18),transparent_28%),linear-gradient(180deg,rgba(2,6,23,0.88),rgba(15,23,42,0.76))]",
+    label: "text-robotics"
   }
 };
 
@@ -28,7 +38,7 @@ export function SubjectPage({ path }: { path: LearningPath }) {
 
   return (
     <div className="mx-auto flex max-w-7xl flex-col gap-8 pb-14">
-      <section className="rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8 lg:p-10">
+      <section className={`rounded-[2rem] border p-6 shadow-neon backdrop-blur sm:p-8 lg:p-10 ${accent.shell}`}>
         <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div className="space-y-6">
             <Link
@@ -105,11 +115,11 @@ export function SubjectPage({ path }: { path: LearningPath }) {
           <article
             key={level.id}
             id={level.id}
-            className="rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8"
+            className={`rounded-[2rem] border p-6 shadow-neon backdrop-blur sm:p-8 ${accent.shell}`}
           >
             <div className="flex flex-col gap-4 border-b border-indigo-200/70 pb-6 dark:border-indigo-500/20 lg:flex-row lg:items-end lg:justify-between">
               <div>
-                <p className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+                <p className={`font-mono text-sm font-semibold uppercase tracking-[0.22em] ${accent.label}`}>
                   {level.style}
                 </p>
                 <h2 className="mt-2 font-display text-3xl font-semibold text-slate-950 dark:text-white">
@@ -134,7 +144,7 @@ export function SubjectPage({ path }: { path: LearningPath }) {
                   <a
                     key={section.title}
                     href={`#${level.id}-section-${index + 1}`}
-                    className="inline-flex rounded-full border border-indigo-200/70 bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 transition hover:-translate-y-0.5 hover:border-ai/40 hover:shadow-sm dark:border-indigo-500/20 dark:bg-slate-950/80 dark:text-slate-200"
+                    className={`inline-flex rounded-full border border-indigo-200/70 bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 transition hover:-translate-y-0.5 hover:shadow-sm dark:border-indigo-500/20 dark:bg-slate-950/80 dark:text-slate-200 ${accent.label}`}
                   >
                     {index + 1}. {section.title}
                   </a>
@@ -217,10 +227,10 @@ export function SubjectPage({ path }: { path: LearningPath }) {
 
       <section
         id="resources"
-        className="rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8"
+        className={`rounded-[2rem] border p-6 shadow-neon backdrop-blur sm:p-8 ${accent.shell}`}
       >
         <div className="mb-6">
-          <p className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+          <p className={`font-mono text-sm font-semibold uppercase tracking-[0.22em] ${accent.label}`}>
             Resource Hub
           </p>
           <h2 className="mt-2 font-display text-3xl font-semibold text-slate-950 dark:text-white">
@@ -251,6 +261,8 @@ export function SubjectPage({ path }: { path: LearningPath }) {
           ))}
         </div>
       </section>
+
+      <SiteFooter />
     </div>
   );
 }

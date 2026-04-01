@@ -6,6 +6,7 @@ import { CategoryCard } from "@/components/category-card";
 import { CodeTheRover } from "@/components/code-the-rover";
 import { HeroSection } from "@/components/hero-section";
 import { LearningModule } from "@/components/learning-module";
+import { SiteFooter } from "@/components/site-footer";
 import { SmartHomeArchitect } from "@/components/smart-home-architect";
 import { SiteHeader } from "@/components/site-header";
 import { TrainTheModel } from "@/components/train-the-model";
@@ -442,20 +443,7 @@ export default function HomePage() {
           <CodeTheRover />
         </section>
 
-        <footer className="rounded-[2rem] border border-indigo-200/70 bg-white/75 px-6 py-8 text-sm text-slate-600 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 dark:text-slate-300 sm:px-8">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="font-display font-semibold text-slate-900 dark:text-white">
-                Beinganie
-              </p>
-              <p className="mt-1">(Knowledge is free for everyone)</p>
-            </div>
-            <p>
-              Resume complete: scaffold validated, reusable curriculum module
-              added, and first Robotics Arcade Lab is playable.
-            </p>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </main>
   );
