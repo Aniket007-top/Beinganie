@@ -1,5 +1,5 @@
 import { BrainCircuit, Cpu, Radar, ChevronRight, Zap } from "lucide-react";
-import Image from "next/image"; // Import Image component
+import Image from "next/image";
 import { ReactNode } from "react";
 
 import { CategoryCard } from "@/components/category-card";
@@ -12,10 +12,10 @@ import { SmartHomeArchitect } from "@/components/smart-home-architect";
 import { TrainTheModel } from "@/components/train-the-model";
 import { ValueCard } from "@/components/value-card";
 import { ResourceItem } from "@/components/resource-item";
-import { FigureCard } from "@/components/figure-card"; // Added import
-import { MetricBadge } from "@/components/metric-badge"; // Added import
-import { JourneyStep } from "@/components/journey-step"; // Added import
-import { AiBars, IotFlow, RoboticsLoop } from "@/components/visual-aids"; // Added import
+import { FigureCard } from "@/components/figure-card";
+import { MetricBadge } from "@/components/metric-badge";
+import { JourneyStep } from "@/components/journey-step";
+import { AiBars, IotFlow, RoboticsLoop } from "@/components/visual-aids";
 import { learningPaths, getLearningPath } from "@/lib/learning-paths";
 
 const categories = [
@@ -76,7 +76,7 @@ export default function HomePage() {
     <main className="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50">
       <SiteHeader /> {/* Sticky Nav */}
 
-      <div className="mx-auto flex max-w-7xl flex-col gap-32 px-4 py-16 sm:px-6 lg:gap-40">
+      <div className="mx-auto flex max-w-7xl flex-col gap-32 px-4 py-16 sm:px-6 lg:gap-48">
         {/* Hero Section - Centered and Clean */}
         <section className="flex flex-col items-center text-center py-16">
           <HeroSection />
@@ -113,7 +113,7 @@ export default function HomePage() {
         </section>
 
         {/* Visual Classroom - Wide Layout */}
-        <section className="space-y-12 rounded-[3rem] bg-slate-50 py-16 dark:bg-slate-900/50">
+        <section className="space-y-12 rounded-[3rem] bg-surface-secondary py-24 dark:bg-slate-900/50">
           <div className="px-8 text-center">
             <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-google-green dark:text-google-green/80">
               Visual Classroom
