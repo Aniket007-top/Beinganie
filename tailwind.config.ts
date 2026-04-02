@@ -14,6 +14,23 @@ const config: Config = {
         foreground: "rgb(var(--foreground) / <alpha-value>)",
         muted: "rgb(var(--muted) / <alpha-value>)",
         border: "rgb(var(--border) / <alpha-value>)",
+        "border-subtle": "#e2e8f0",
+        "background-primary": "#ffffff",
+        "surface-secondary": "#f8fafc",
+        "text-primary": "#0f172a",
+        "text-secondary": "#475569",
+        "google-blue": {
+          DEFAULT: "#4285F4",
+          700: "#1a73e8",
+        },
+        "google-green": {
+          DEFAULT: "#34A853",
+          700: "#188038",
+        },
+        "google-yellow": {
+          DEFAULT: "#FBBC04",
+          700: "#f9ab00",
+        },
         card: "rgb(var(--card) / <alpha-value>)",
         ai: {
           DEFAULT: "#4F46E5",
