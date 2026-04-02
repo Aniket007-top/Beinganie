@@ -115,7 +115,6 @@ export function ChapterVisualPanel({
           width={1200}
           height={720}
           className="h-48 w-full object-cover"
-          unoptimized
         />
       </div>
 
