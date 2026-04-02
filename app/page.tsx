@@ -72,6 +72,10 @@ export default function HomePage() {
   const aiLearningPath = getLearningPath("ai");
   const iotLearningPath = getLearningPath("iot");
   const roboticsLearningPath = getLearningPath("robotics");
+
+  const tracksCount = learningPaths.length;
+  const levelRoutesCount = learningPaths.reduce((acc, path) => acc + path.levels.length, 0);
+  const arcadeLabsCount = 3; // Assuming 3 fixed arcade labs for now
   return (
     <main className="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50">
       <SiteHeader /> {/* Sticky Nav */}
@@ -106,9 +110,9 @@ export default function HomePage() {
           </div>
 
           <div className="flex justify-center gap-4">
-            <MetricBadge label="Tracks" value="3" />
-            <MetricBadge label="Level Routes" value="9" />
-            <MetricBadge label="Arcade Labs" value="3" />
+            <MetricBadge label="Tracks" value={tracksCount.toString()} />
+            <MetricBadge label="Level Routes" value={levelRoutesCount.toString()} />
+            <MetricBadge label="Arcade Labs" value={arcadeLabsCount.toString()} />
           </div>
         </section>
 
