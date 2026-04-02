@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { LayoutDashboard, Menu, Search, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -85,30 +85,32 @@ export function SiteHeader() {
           </button>
         </div>
 
-        {menuOpen && (
-          <motion.nav
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="lg:hidden absolute top-full left-0 w-full grid gap-3 rounded-b-[1.75rem] border border-border-subtle bg-background-primary/90 p-4 text-sm font-medium text-text-secondary shadow-soft-elevation backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/90 dark:text-slate-300 sm:grid-cols-2"
-          >
-              {navItems.map((item) => {
-                const Icon = item.icon;
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.nav
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="lg:hidden absolute top-full left-0 w-full grid gap-3 rounded-b-[1.75rem] border border-border-subtle bg-background-primary/90 p-4 text-sm font-medium text-text-secondary shadow-soft-elevation backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/90 dark:text-slate-300 sm:grid-cols-2"
+            >
+                {navItems.map((item) => {
+                  const Icon = item.icon;
 
-                return (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="inline-flex items-center gap-2 rounded-full border border-transparent bg-surface-secondary/70 px-4 py-3 hover:border-google-blue/20 hover:bg-google-blue/10 hover:text-google-blue dark:bg-slate-950/60"
-                  >
-                    {Icon ? <Icon className="h-4 w-4" /> : null}
-                    {item.label}
-                  </Link>
-                );
-              })}
-          </motion.nav>
-        )}
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="inline-flex items-center gap-2 rounded-full border border-transparent bg-surface-secondary/70 px-4 py-3 hover:border-google-blue/20 hover:bg-google-blue/10 hover:text-google-blue dark:bg-slate-950/60"
+                    >
+                      {Icon ? <Icon className="h-4 w-4" /> : null}
+                      {item.label}
+                    </Link>
+                  );
+                })}
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
