@@ -7,28 +7,28 @@ import { getLevelSlug, type LearningPath } from "@/lib/learning-paths";
 
 const accentClassMap = {
   ai: {
-    chip: "border-ai/20 bg-ai-soft text-ai",
-    button: "bg-ai hover:bg-indigo-700 text-white",
-    soft: "bg-ai-soft text-ai border-ai/20",
+    chip: "border-google-blue/20 bg-google-blue/10 text-google-blue",
+    button: "bg-google-blue hover:bg-google-blue/90 text-white",
+    soft: "bg-google-blue/10 text-google-blue border-google-blue/20",
     shell:
-      "border-ai/20 bg-[radial-gradient(circle_at_top_left,rgba(79,70,229,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.78),rgba(255,255,255,0.72))] dark:bg-[radial-gradient(circle_at_top_left,rgba(79,70,229,0.18),transparent_28%),linear-gradient(180deg,rgba(2,6,23,0.88),rgba(15,23,42,0.76))]",
-    label: "text-ai"
+      "border-border-subtle bg-background-primary dark:border-slate-800 dark:bg-slate-950/70", // Simplified shell
+    label: "text-google-blue"
   },
   iot: {
-    chip: "border-iot/20 bg-iot-soft text-iot",
-    button: "bg-iot hover:bg-emerald-700 text-white",
-    soft: "bg-iot-soft text-iot border-iot/20",
+    chip: "border-google-green/20 bg-google-green/10 text-google-green",
+    button: "bg-google-green hover:bg-google-green/90 text-white",
+    soft: "bg-google-green/10 text-google-green border-google-green/20",
     shell:
-      "border-iot/20 bg-[radial-gradient(circle_at_top_left,rgba(5,150,105,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.78),rgba(255,255,255,0.72))] dark:bg-[radial-gradient(circle_at_top_left,rgba(5,150,105,0.18),transparent_28%),linear-gradient(180deg,rgba(2,6,23,0.88),rgba(15,23,42,0.76))]",
-    label: "text-iot"
+      "border-border-subtle bg-background-primary dark:border-slate-800 dark:bg-slate-950/70", // Simplified shell
+    label: "text-google-green"
   },
   robotics: {
-    chip: "border-robotics/20 bg-robotics-soft text-robotics",
-    button: "bg-robotics hover:bg-amber-700 text-white",
-    soft: "bg-robotics-soft text-robotics border-robotics/20",
+    chip: "border-google-yellow/20 bg-google-yellow/10 text-google-yellow",
+    button: "bg-google-yellow hover:bg-google-yellow/90 text-white",
+    soft: "bg-google-yellow/10 text-google-yellow border-google-yellow/20",
     shell:
-      "border-robotics/20 bg-[radial-gradient(circle_at_top_left,rgba(217,119,6,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.78),rgba(255,255,255,0.72))] dark:bg-[radial-gradient(circle_at_top_left,rgba(217,119,6,0.18),transparent_28%),linear-gradient(180deg,rgba(2,6,23,0.88),rgba(15,23,42,0.76))]",
-    label: "text-robotics"
+      "border-border-subtle bg-background-primary dark:border-slate-800 dark:bg-slate-950/70", // Simplified shell
+    label: "text-google-yellow"
   }
 };
 
@@ -37,8 +37,8 @@ export function SubjectPage({ path }: { path: LearningPath }) {
   const Icon: LucideIcon = path.icon;
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col gap-8 pb-14">
-      <section className={`rounded-[2rem] border p-6 shadow-neon backdrop-blur sm:p-8 lg:p-10 ${accent.shell}`}>
+    <div className="mx-auto flex max-w-7xl flex-col gap-16 pb-14 px-4 sm:px-6 lg:gap-24">
+      <section className={`rounded-[2rem] border p-6 shadow-none backdrop-blur sm:p-8 lg:p-10 ${accent.shell}`}>
         <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div className="space-y-6">
             <Link
@@ -49,7 +49,7 @@ export function SubjectPage({ path }: { path: LearningPath }) {
               Back to homepage
             </Link>
 
-            <div className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-sm font-semibold ${accent.chip}`}>
+            <div className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-sm font-bold ${accent.chip}`}>
               <Icon className="h-4 w-4" />
               {path.title}
             </div>
@@ -66,13 +66,13 @@ export function SubjectPage({ path }: { path: LearningPath }) {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="#levels"
-                className={`inline-flex items-center justify-center rounded-full px-6 py-3 font-mono text-sm font-semibold uppercase tracking-[0.16em] transition hover:-translate-y-0.5 ${accent.button}`}
+                className={`inline-flex items-center justify-center rounded-full px-6 py-3 font-mono text-sm font-bold uppercase tracking-[0.15em] transition hover:scale-[1.02] ${accent.button}`}
               >
                 Explore Levels
               </Link>
               <Link
                 href="#resources"
-                className="inline-flex items-center justify-center rounded-full border border-indigo-200/70 bg-white/70 px-6 py-3 font-mono text-sm font-semibold uppercase tracking-[0.16em] text-slate-700 transition hover:-translate-y-0.5 dark:border-indigo-500/20 dark:bg-slate-900/70 dark:text-slate-200"
+                className="inline-flex items-center justify-center rounded-full border border-border-subtle bg-background-primary/80 px-6 py-3 font-mono text-sm font-bold uppercase tracking-[0.15em] text-text-primary shadow-none transition hover:scale-[1.02] dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-200"
               >
                 Resource Hub
               </Link>
@@ -80,7 +80,7 @@ export function SubjectPage({ path }: { path: LearningPath }) {
           </div>
 
           <div className="grid gap-4">
-            <div className="rounded-[1.75rem] border border-indigo-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+            <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-6 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
               <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.soft}`}>
                 <BookOpen className="h-5 w-5" />
               </div>
@@ -91,7 +91,7 @@ export function SubjectPage({ path }: { path: LearningPath }) {
                 {path.mission}
               </p>
             </div>
-            <div className="rounded-[1.75rem] border border-indigo-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+            <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-6 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
               <h2 className="font-display text-xl font-semibold text-slate-950 dark:text-white">
                 Roadmap
               </h2>
@@ -99,7 +99,7 @@ export function SubjectPage({ path }: { path: LearningPath }) {
                 {path.roadmap.map((step) => (
                   <div
                     key={step}
-                    className="rounded-2xl border border-indigo-200/70 bg-white/80 px-4 py-3 text-sm leading-7 text-slate-600 backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/80 dark:text-slate-300"
+                    className="rounded-[1.25rem] border border-border-subtle bg-background-primary/80 px-4 py-3 text-sm leading-relaxed text-slate-600 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80 dark:text-slate-300"
                   >
                     {step}
                   </div>
@@ -115,18 +115,18 @@ export function SubjectPage({ path }: { path: LearningPath }) {
           <article
             key={level.id}
             id={level.id}
-            className={`rounded-[2rem] border p-6 shadow-neon backdrop-blur sm:p-8 ${accent.shell}`}
+            className={`rounded-[2rem] border p-6 shadow-none backdrop-blur sm:p-8 ${accent.shell}`}
           >
-            <div className="flex flex-col gap-4 border-b border-indigo-200/70 pb-6 dark:border-indigo-500/20 lg:flex-row lg:items-end lg:justify-between">
+            <div className="flex flex-col gap-4 border-b border-border-subtle pb-6 dark:border-slate-800 lg:flex-row lg:items-end lg:justify-between">
               <div>
-                <p className={`font-mono text-sm font-semibold uppercase tracking-[0.22em] ${accent.label}`}>
+                <p className={`font-mono text-sm font-bold uppercase tracking-[0.2em] ${accent.label}`}>
                   {level.style}
                 </p>
-                <h2 className="mt-2 font-display text-3xl font-semibold text-slate-950 dark:text-white">
+                <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-text-primary dark:text-white">
                   {level.level}
                 </h2>
               </div>
-              <div className={`inline-flex rounded-full border px-4 py-2 text-sm font-semibold ${accent.soft}`}>
+              <div className={`inline-flex rounded-full border px-4 py-2 text-sm font-bold ${accent.soft}`}>
                 {path.shortTitle} Learning Layer
               </div>
             </div>
@@ -135,8 +135,8 @@ export function SubjectPage({ path }: { path: LearningPath }) {
               {level.summary}
             </p>
 
-            <div className="mt-6 rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
-              <p className="font-display text-sm font-semibold text-slate-900 dark:text-white">
+            <div className="mt-6 rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
+              <p className="font-display text-base font-semibold text-text-primary dark:text-white">
                 Chapter Guide
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
@@ -144,7 +144,7 @@ export function SubjectPage({ path }: { path: LearningPath }) {
                   <a
                     key={section.title}
                     href={`#${level.id}-section-${index + 1}`}
-                    className={`inline-flex rounded-full border border-indigo-200/70 bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 transition hover:-translate-y-0.5 hover:shadow-sm dark:border-indigo-500/20 dark:bg-slate-950/80 dark:text-slate-200 ${accent.label}`}
+                    className={`inline-flex rounded-full border border-border-subtle bg-background-primary/80 px-4 py-2 text-sm font-medium text-text-secondary transition hover:scale-[1.02] hover:shadow-sm dark:border-slate-800 dark:bg-slate-950/80 dark:text-slate-200 ${accent.label}`}
                   >
                     {index + 1}. {section.title}
                   </a>
@@ -158,9 +158,9 @@ export function SubjectPage({ path }: { path: LearningPath }) {
                   <div
                     key={section.title}
                     id={`${level.id}-section-${index + 1}`}
-                    className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70"
+                    className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70"
                   >
-                    <h3 className="font-display text-xl font-semibold text-slate-950 dark:text-white">
+                    <h3 className="font-display text-xl font-semibold tracking-tight text-text-primary dark:text-white">
                       {section.title}
                     </h3>
                     <div className="mt-3 space-y-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
@@ -186,16 +186,16 @@ export function SubjectPage({ path }: { path: LearningPath }) {
               </div>
 
               <aside className="space-y-5">
-                <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
-                  <p className="font-display text-sm font-semibold text-slate-900 dark:text-white">
+                <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
+                  <p className="font-display text-base font-semibold text-text-primary dark:text-white">
                     Learn by Doing
                   </p>
                   <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
                     {level.project}
                   </p>
                 </div>
-                <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
-                  <p className="font-display text-sm font-semibold text-slate-900 dark:text-white">
+                <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
+                  <p className="font-display text-base font-semibold text-text-primary dark:text-white">
                     Full Chapter Route
                   </p>
                   <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
@@ -203,14 +203,14 @@ export function SubjectPage({ path }: { path: LearningPath }) {
                   </p>
                   <Link
                     href={`/${path.slug}/${getLevelSlug(level.id)}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-slate-700 dark:text-white dark:hover:text-slate-200"
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-google-blue hover:text-google-blue/80 dark:text-white dark:hover:text-google-blue/80"
                   >
                     Open full level page
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
-                <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
-                  <p className="font-display text-sm font-semibold text-slate-900 dark:text-white">
+                <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
+                  <p className="font-display text-base font-semibold text-text-primary dark:text-white">
                     Why this level matters
                   </p>
                   <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
@@ -227,13 +227,13 @@ export function SubjectPage({ path }: { path: LearningPath }) {
 
       <section
         id="resources"
-        className={`rounded-[2rem] border p-6 shadow-neon backdrop-blur sm:p-8 ${accent.shell}`}
+        className={`rounded-[2rem] border p-6 shadow-none backdrop-blur sm:p-8 ${accent.shell}`}
       >
         <div className="mb-6">
-          <p className={`font-mono text-sm font-semibold uppercase tracking-[0.22em] ${accent.label}`}>
+          <p className={`font-mono text-sm font-bold uppercase tracking-[0.2em] ${accent.label}`}>
             Resource Hub
           </p>
-          <h2 className="mt-2 font-display text-3xl font-semibold text-slate-950 dark:text-white">
+          <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-text-primary dark:text-white">
             Free tools and study directions for {path.title}
           </h2>
         </div>
@@ -245,15 +245,15 @@ export function SubjectPage({ path }: { path: LearningPath }) {
               href={resource.href}
               target={resource.href.startsWith("http") ? "_blank" : undefined}
               rel={resource.href.startsWith("http") ? "noreferrer" : undefined}
-              className="group rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:border-ai/40 hover:shadow-neon dark:border-indigo-500/20 dark:bg-slate-900/70"
+              className="group rounded-[1.75rem] border border-border-subtle bg-background-primary/80 p-5 shadow-none backdrop-blur transition hover:scale-[1.02] hover:border-google-blue/40 dark:border-slate-800 dark:bg-slate-900/70"
             >
-              <h3 className="font-display text-lg font-semibold text-slate-950 dark:text-white">
+              <h3 className="font-display text-lg font-semibold tracking-tight text-text-primary dark:text-white">
                 {resource.title}
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
                 {resource.description}
               </p>
-              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-google-blue dark:text-google-blue/80">
                 Explore
                 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
               </span>

@@ -107,8 +107,8 @@ export function ChapterVisualPanel({
   const asset = visualAssets[accent][index % visualAssets[accent].length];
 
   return (
-    <div className="mt-5 rounded-[1.4rem] border border-indigo-200/70 bg-white/80 p-4 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70">
-      <div className="overflow-hidden rounded-[1rem] border border-indigo-200/70 dark:border-indigo-500/20">
+    <div className="mt-5 rounded-[1.75rem] border border-border-subtle bg-background-primary/80 p-4 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
+      <div className="overflow-hidden rounded-[1.25rem] border border-border-subtle dark:border-slate-800">
         <Image
           src={asset.image}
           alt={asset.imageAlt}
@@ -120,10 +120,10 @@ export function ChapterVisualPanel({
       </div>
 
       <div className="mt-4">
-        <p className={`font-mono text-[11px] font-semibold uppercase tracking-[0.22em] ${accentTextMap[accent]}`}>
+        <p className={`font-mono text-xs font-bold uppercase tracking-[0.2em] ${accentTextMap[accent]}`}>
           Chapter visual
         </p>
-        <h4 className="mt-2 font-display text-xl font-normal tracking-wide text-slate-950 dark:text-white">
+        <h4 className="mt-2 font-display text-xl font-semibold tracking-tight text-text-primary dark:text-white">
           {asset.title}
         </h4>
         <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">
@@ -141,7 +141,7 @@ export function ChapterVisualPanel({
         href={asset.source}
         target="_blank"
         rel="noreferrer"
-        className="mt-4 inline-flex font-mono text-[11px] uppercase tracking-[0.2em] text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
+        className="mt-4 inline-flex font-mono text-xs uppercase tracking-[0.15em] text-slate-500 hover:text-google-blue dark:text-slate-400 dark:hover:text-google-blue/80"
       >
         Source: Wikimedia Commons
       </a>
@@ -150,9 +150,9 @@ export function ChapterVisualPanel({
 }
 
 const accentTextMap: Record<Accent, string> = {
-  ai: "text-ai",
-  iot: "text-iot",
-  robotics: "text-robotics"
+  ai: "text-google-blue",
+  iot: "text-google-green",
+  robotics: "text-google-yellow"
 };
 
 function AiVisualGraph({ index }: { index: number }) {
@@ -175,8 +175,8 @@ function AiVisualGraph({ index }: { index: number }) {
   ][index % 3];
 
   return (
-    <div className="rounded-2xl border border-indigo-200/70 bg-white/70 p-4 dark:border-indigo-500/20 dark:bg-slate-900/70">
-      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ai">
+    <div className="rounded-[1.25rem] border border-border-subtle bg-surface-secondary p-4 dark:border-slate-800 dark:bg-slate-900/70">
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-google-blue">
         AI graph
       </p>
       <div className="mt-4 space-y-3">
@@ -186,7 +186,7 @@ function AiVisualGraph({ index }: { index: number }) {
               <span>{item.label}</span>
             </div>
             <div className="h-3 rounded-full bg-slate-200/80 dark:bg-slate-800">
-              <div className={`h-full rounded-full bg-gradient-to-r from-ai to-cyan-400 ${item.width}`} />
+              <div className={`h-full rounded-full bg-gradient-to-r from-google-blue to-cyan-400 ${item.width}`} />
             </div>
           </div>
         ))}
@@ -203,14 +203,14 @@ function IotVisualGraph({ index }: { index: number }) {
   ][index % 3];
 
   return (
-    <div className="rounded-2xl border border-indigo-200/70 bg-white/70 p-4 dark:border-indigo-500/20 dark:bg-slate-900/70">
-      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-iot">
+    <div className="rounded-[1.25rem] border border-border-subtle bg-surface-secondary p-4 dark:border-slate-800 dark:bg-slate-900/70">
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-google-green">
         IoT flow
       </p>
       <div className="mt-4 flex flex-wrap items-center gap-2">
         {flows.map((step, stepIndex) => (
           <div key={step} className="flex items-center gap-2">
-            <div className="rounded-full border border-iot/20 bg-iot-soft px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] text-iot">
+            <div className="rounded-full border border-google-green/20 bg-google-green/10 px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] text-google-green">
               {step}
             </div>
             {stepIndex < flows.length - 1 ? (

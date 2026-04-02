@@ -1,24 +1,12 @@
+import { Inter } from "next/font/google"; // Using Inter for a clean sans-serif look
 import type { Metadata } from "next";
-import { Share_Tech_Mono, Space_Grotesk, VT323 } from "next/font/google";
 
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const spaceGrotesk = Space_Grotesk({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans"
-});
-
-const vt323 = VT323({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-display"
-});
-
-const shareTechMono = Share_Tech_Mono({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-mono"
 });
 
 export const metadata: Metadata = {
@@ -33,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${spaceGrotesk.variable} ${vt323.variable} ${shareTechMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable}`}>
+      <body className="font-sans">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -1,17 +1,21 @@
 import { BrainCircuit, Cpu, Radar, ChevronRight, Zap } from "lucide-react";
 import Image from "next/image"; // Import Image component
-import { ReactNode } from "react"; // Import ReactNode
+import { ReactNode } from "react";
 
 import { CategoryCard } from "@/components/category-card";
 import { CodeTheRover } from "@/components/code-the-rover";
 import { HeroSection } from "@/components/hero-section";
 import { LearningModule } from "@/components/learning-module";
 import { SiteFooter } from "@/components/site-footer";
-import { SmartHomeArchitect } from "@/components/smart-home-architect";
 import { SiteHeader } from "@/components/site-header";
+import { SmartHomeArchitect } from "@/components/smart-home-architect";
 import { TrainTheModel } from "@/components/train-the-model";
 import { ValueCard } from "@/components/value-card";
 import { ResourceItem } from "@/components/resource-item";
+import { FigureCard } from "@/components/figure-card";
+import { MetricBadge } from "@/components/metric-badge";
+import { JourneyStep } from "@/components/journey-step";
+import { AiBars, IotFlow, RoboticsLoop } from "@/components/visual-aids";
 import { learningPaths, getLearningPath } from "@/lib/learning-paths";
 
 const categories = [
@@ -57,10 +61,10 @@ const categories = [
 ];
 
 const shortcuts = [
-  { name: "AI Track", href: "#ai-curriculum" },
-  { name: "IoT Track", href: "#iot-curriculum" },
+  { name: "AI", href: "#ai-curriculum" },
+  { name: "IoT", href: "#iot-curriculum" },
   { name: "Robotics", href: "#robotics-curriculum" },
-  { name: "Arcade Labs", href: "#arcade-lab" },
+  { name: "Labs", href: "#arcade-lab" },
 ];
 
 export default function HomePage() {
@@ -70,11 +74,11 @@ export default function HomePage() {
   const roboticsLearningPath = getLearningPath("robotics");
   return (
     <main className="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50">
-      <SiteHeader />
+      <SiteHeader /> {/* Sticky Nav */}
 
-      <div className="mx-auto flex max-w-7xl flex-col gap-16 px-4 pb-24 pt-8 sm:px-6 lg:gap-24">
+      <div className="mx-auto flex max-w-7xl flex-col gap-32 px-4 py-16 sm:px-6 lg:gap-40">
         {/* Hero Section - Centered and Clean */}
-        <section className="flex flex-col items-center text-center">
+        <section className="flex flex-col items-center text-center py-16">
           <HeroSection />
         </section>
 
@@ -82,10 +86,10 @@ export default function HomePage() {
         <section
           id="tracks"
           className="space-y-10"
-        >
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-indigo-600 dark:text-indigo-400">
-              Learning Tracks
+        > {/* Bento Grid */}
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-google-blue dark:text-google-blue/80">
+              Learning Paths
             </p>
             <h2 className="mt-4 font-display text-4xl font-medium tracking-tight text-slate-950 dark:text-white sm:text-5xl">
               Explore structured pathways
@@ -111,10 +115,10 @@ export default function HomePage() {
         {/* Visual Classroom - Wide Layout */}
         <section className="space-y-12 rounded-[3rem] bg-slate-50 py-16 dark:bg-slate-900/50">
           <div className="px-8 text-center">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-emerald-600">
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-google-green dark:text-google-green/80">
               Visual Classroom
             </p>
-            <h2 className="mt-4 font-display text-4xl font-medium text-slate-950 dark:text-white">
+            <h2 className="mt-4 font-display text-4xl font-medium tracking-tight text-slate-950 dark:text-white">
               System-level visualization
             </h2>
           </div>
@@ -132,13 +136,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="grid gap-5 xl:grid-cols-[1.2fr_0.8fr]">
-          <div className="rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8">
-            <p className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+        <section className="grid gap-8 xl:grid-cols-[1.2fr_0.8fr] py-16">
+          <div className="rounded-[2rem] border border-border-subtle bg-background-primary p-8 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-text-secondary dark:text-slate-400">
               Product Highlights
             </p>
-            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
-              Built like a learning product, not just a landing page
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-text-primary dark:text-white">
+              Built like a learning product
             </h2>
             <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600 dark:text-slate-300">
               Each domain is designed as a three-level curriculum, from
@@ -167,11 +171,11 @@ export default function HomePage() {
             </div>
           </div>
 
-          <aside className="rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8">
-            <p className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+          <aside className="rounded-[2rem] border border-border-subtle bg-background-primary p-8 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-text-secondary dark:text-slate-400">
               Learning Flow
             </p>
-            <h2 className="mt-3 font-display text-2xl font-semibold text-slate-950 dark:text-white">
+            <h2 className="mt-4 font-display text-2xl font-semibold tracking-tight text-text-primary dark:text-white">
               How a learner moves through Beinganie
             </h2>
             <div className="mt-6 space-y-4">
@@ -241,12 +245,12 @@ export default function HomePage() {
         </div>
 
         <section id="dashboard" className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8">
-            <p className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+          <div className="rounded-[2rem] border border-border-subtle bg-background-primary p-8 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-text-secondary dark:text-slate-400">
               Platform Direction
             </p>
-            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
-              Built for free learning, free tooling, and free hosting
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-text-primary dark:text-white">
+              Built for free learning, tooling, and hosting
             </h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <ValueCard
@@ -269,13 +273,13 @@ export default function HomePage() {
           </div>
 
           <aside
-            id="resource-hub"
-            className="rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8"
+            id="resource-hub" // This ID is used in SiteHeader navItems
+            className="rounded-[2rem] border border-border-subtle bg-surface-secondary p-8 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70"
           >
-            <p className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-text-secondary dark:text-slate-400">
               Resource Hub
             </p>
-            <h2 className="mt-3 font-display text-2xl font-semibold text-slate-950 dark:text-white">
+            <h2 className="mt-4 font-display text-2xl font-semibold tracking-tight text-text-primary dark:text-white">
               Starter resources for the next build phases
             </h2>
             <div className="mt-6 space-y-4">
@@ -326,11 +330,11 @@ export default function HomePage() {
           id="arcade-lab"
           className="space-y-5"
         >
-          <div className="rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8">
-            <p className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-robotics">
+          <div className="rounded-[2rem] border border-border-subtle bg-background-primary p-8 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-google-yellow dark:text-google-yellow/80">
               Arcade Lab
             </p>
-            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-text-primary dark:text-white">
               Learn by doing through interactive mini systems
             </h2>
             <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600 dark:text-slate-300">
@@ -348,12 +352,12 @@ export default function HomePage() {
       </div>
 
       {/* Google-style Shortcut Navigation Floating Bar */}
-      <nav className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-1 rounded-full border border-slate-200 bg-white/90 p-1.5 shadow-2xl backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90">
-        <div className="flex items-center px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-indigo-500">
-          <Zap className="mr-2 h-3 w-3 fill-current" />
+      <nav className="fixed bottom-8 left-1/2 z-50 flex -translate-x-1/2 items-center gap-1 rounded-full border border-border-subtle bg-background-primary/80 p-2 shadow-soft-elevation backdrop-blur-xl dark:border-slate-800/60 dark:bg-slate-950/80">
+        <div className="flex items-center px-3 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-google-blue dark:text-google-blue/80">
+          <Zap className="mr-2 h-3 w-3 fill-current text-google-blue" />
           Shortcuts
         </div>
-        <div className="h-4 w-px bg-slate-200 dark:bg-slate-800" />
+        <div className="h-4 w-px bg-slate-200 dark:bg-slate-700" />
         {shortcuts.map((link) => (
           <a
             key={link.name}
@@ -365,184 +369,5 @@ export default function HomePage() {
         ))}
       </nav>
     </main>
-  );
-}
-
-// Moved these components outside HomePage for better structure
-function FigureCard({
-  title,
-  description,
-  image,
-  imageAlt,
-  imageSource,
-  accent,
-  children
-}: {
-  title: string;
-  description: string;
-  image: string;
-  imageAlt: string;
-  imageSource: string;
-  accent: "ai" | "iot" | "robotics";
-  children: ReactNode;
-}) {
-  const accentLabel = {
-    ai: "AI",
-    iot: "IoT",
-    robotics: "Robotics"
-  }[accent];
-
-  return (
-    <article className="figure-card p-4 sm:p-5">
-      <div className="overflow-hidden rounded-[1.2rem] border border-indigo-200/70 dark:border-indigo-500/20">
-        <Image
-          src={image}
-          alt={imageAlt}
-          width={1200}
-          height={720}
-          className="h-52 w-full object-cover"
-          unoptimized
-        />
-      </div>
-      <div className="mt-4">
-        <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
-          {accentLabel} visual
-        </p>
-        <h3 className="mt-2 font-display text-2xl font-normal tracking-wide text-slate-950 dark:text-white">
-          {title}
-        </h3>
-        <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-          {description}
-        </p>
-      </div>
-      <div className="mt-5">{children}</div>
-      <a
-        href={imageSource}
-        target="_blank"
-        rel="noreferrer"
-        className="mt-4 inline-flex font-mono text-[11px] uppercase tracking-[0.2em] text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
-      >
-        Source: Wikimedia Commons
-      </a>
-    </article>
-  );
-}
-
-function AiBars() {
-  const items = [
-    { label: "Data", value: "92%", width: "w-[92%]" },
-    { label: "Model", value: "78%", width: "w-[78%]" },
-    { label: "Eval", value: "64%", width: "w-[64%]" },
-    { label: "Deploy", value: "52%", width: "w-[52%]" }
-  ];
-
-  return (
-    <div className="rounded-2xl border border-indigo-200/70 bg-white/70 p-4 dark:border-indigo-500/20 dark:bg-slate-900/70">
-      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ai">
-        Pipeline graph
-      </p>
-      <div className="mt-4 space-y-3">
-        {items.map((item) => (
-          <div key={item.label}>
-            <div className="mb-1 flex items-center justify-between text-xs uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
-              <span>{item.label}</span>
-              <span>{item.value}</span>
-            </div>
-            <div className="h-3 rounded-full bg-slate-200/80 dark:bg-slate-800">
-              <div className={`h-full rounded-full bg-gradient-to-r from-ai to-cyan-400 ${item.width}`} />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function IotFlow() {
-  const steps = ["Sensor", "Edge", "Gateway", "Cloud", "App"];
-
-  return (
-    <div className="rounded-2xl border border-indigo-200/70 bg-white/70 p-4 dark:border-indigo-500/20 dark:bg-slate-900/70">
-      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-iot">
-        System flow
-      </p>
-      <div className="mt-4 flex flex-wrap items-center gap-2">
-        {steps.map((step, index) => (
-          <div key={step} className="flex items-center gap-2">
-            <div className="rounded-full border border-iot/20 bg-iot-soft px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] text-iot">
-              {step}
-            </div>
-            {index < steps.length - 1 ? (
-              <div className="h-px w-6 bg-gradient-to-r from-iot to-emerald-300" />
-            ) : null}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function RoboticsLoop() {
-  const loop = ["Sense", "Plan", "Control", "Move"];
-
-  return (
-    <div className="rounded-2xl border border-indigo-200/70 bg-white/70 p-4 dark:border-indigo-500/20 dark:bg-slate-900/70">
-      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-robotics">
-        Control loop
-      </p>
-      <div className="mt-4 grid grid-cols-2 gap-3">
-        {loop.map((item) => (
-          <div
-            key={item}
-            className="rounded-2xl border border-robotics/20 bg-robotics-soft px-4 py-5 text-center font-mono text-xs uppercase tracking-[0.16em] text-robotics"
-          >
-            {item}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function MetricBadge({
-  label,
-  value
-}: {
-  label: string;
-  value: string;
-}) {
-  return (
-    <div className="rounded-2xl border border-indigo-200/70 bg-white/80 px-4 py-3 text-center shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
-      <p className="font-display text-xl font-semibold text-slate-950 dark:text-white">
-        {value}
-      </p>
-      <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-        {label}
-      </p>
-    </div>
-  );
-}
-
-function JourneyStep({
-  index,
-  title,
-  description
-}: {
-  index: string;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="rounded-2xl border border-indigo-200/70 bg-white/80 p-4 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
-      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.24em] text-ai">
-        {index}
-      </p>
-      <h3 className="mt-2 font-display text-lg font-semibold text-slate-950 dark:text-white">
-        {title}
-      </h3>
-      <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">
-        {description}
-      </p>
-    </div>
   );
 }

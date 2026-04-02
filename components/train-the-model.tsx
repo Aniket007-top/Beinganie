@@ -84,16 +84,16 @@ export function TrainTheModel() {
   }
 
   return (
-    <section className="relative overflow-hidden rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(79,70,229,0.16),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(34,211,238,0.16),transparent_32%)]" />
+    <section className="relative overflow-hidden rounded-[2rem] border border-border-subtle bg-background-primary p-6 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70 sm:p-8">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(66,133,244,0.1),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(66,133,244,0.1),transparent_32%)]" />
       <div className="relative grid gap-8 xl:grid-cols-[0.9fr_1.1fr]">
         <div className="space-y-5">
-          <div className="inline-flex items-center gap-2 rounded-full border border-ai/20 bg-white/80 px-4 py-2 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-ai shadow-sm dark:bg-slate-950/70">
+          <div className="inline-flex items-center gap-2 rounded-full border border-google-blue/20 bg-background-primary/80 px-4 py-2 font-mono text-sm font-bold uppercase tracking-[0.15em] text-google-blue shadow-none dark:bg-slate-950/70">
             <BrainCircuit className="h-4 w-4" />
             Arcade Lab - AI
           </div>
           <div>
-            <h2 className="font-display text-3xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-4xl">
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-text-primary dark:text-white sm:text-4xl">
               Train the Model
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
@@ -104,7 +104,7 @@ export function TrainTheModel() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+            <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                 Mission
               </p>
@@ -115,7 +115,7 @@ export function TrainTheModel() {
                 Accurate labels help a model detect patterns instead of noise.
               </p>
             </div>
-            <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+            <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                 Concept
               </p>
@@ -128,7 +128,7 @@ export function TrainTheModel() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+          <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
             <div className="flex items-center justify-between gap-4">
               <div>
                 <p className="font-display text-sm font-semibold text-slate-900 dark:text-white">
@@ -146,8 +146,8 @@ export function TrainTheModel() {
               ) : null}
             </div>
             <div className="mt-4 h-3 overflow-hidden rounded-full bg-slate-200/80 dark:bg-slate-800">
-              <div
-                className="h-full rounded-full bg-gradient-to-r from-ai to-cyan-400 transition-all"
+              <div // Progress bar uses Google Blue
+                className="h-full rounded-full bg-gradient-to-r from-google-blue to-cyan-400 transition-all"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -163,7 +163,7 @@ export function TrainTheModel() {
             key={current?.id ?? "done"}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            className="rounded-[1.75rem] border border-indigo-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(238,242,255,0.74))] p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-[linear-gradient(180deg,rgba(15,23,42,0.88),rgba(15,23,42,0.7))]"
+            className="rounded-[1.75rem] border border-border-subtle bg-background-primary/80 p-6 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70"
           >
             {current && !complete ? (
               <>
@@ -171,7 +171,7 @@ export function TrainTheModel() {
                   <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                     Sample {index + 1}
                   </p>
-                  <span className="rounded-full border border-ai/20 bg-ai-soft px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-ai">
+                  <span className="rounded-full border border-google-blue/20 bg-google-blue/10 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-google-blue">
                     Live labeling
                   </span>
                 </div>
@@ -185,12 +185,12 @@ export function TrainTheModel() {
                   <button
                     type="button"
                     onClick={() => handleLabel("fruit")}
-                    className="group rounded-[1.5rem] border border-ai/20 bg-white/80 px-5 py-5 text-left shadow-sm backdrop-blur transition hover:-translate-y-1 hover:border-ai hover:shadow-neon dark:bg-slate-950/80"
+                    className="group rounded-[1.5rem] border border-border-subtle bg-background-primary/80 px-5 py-5 text-left shadow-none backdrop-blur transition hover:scale-[1.02] hover:border-google-blue dark:bg-slate-950/80"
                   >
-                    <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ai">
+                    <p className="font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-google-blue">
                       Label A
                     </p>
-                    <p className="mt-3 font-display text-lg font-semibold text-slate-950 transition group-hover:text-ai dark:text-white">
+                    <p className="mt-3 font-display text-lg font-semibold text-text-primary transition group-hover:text-google-blue dark:text-white">
                       Fruit
                     </p>
                     <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
@@ -200,12 +200,12 @@ export function TrainTheModel() {
                   <button
                     type="button"
                     onClick={() => handleLabel("vehicle")}
-                    className="group rounded-[1.5rem] border border-ai/20 bg-white/80 px-5 py-5 text-left shadow-sm backdrop-blur transition hover:-translate-y-1 hover:border-ai hover:shadow-neon dark:bg-slate-950/80"
+                    className="group rounded-[1.5rem] border border-border-subtle bg-background-primary/80 px-5 py-5 text-left shadow-none backdrop-blur transition hover:scale-[1.02] hover:border-google-blue dark:bg-slate-950/80"
                   >
-                    <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ai">
+                    <p className="font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-google-blue">
                       Label B
                     </p>
-                    <p className="mt-3 font-display text-lg font-semibold text-slate-950 transition group-hover:text-ai dark:text-white">
+                    <p className="mt-3 font-display text-lg font-semibold text-text-primary transition group-hover:text-google-blue dark:text-white">
                       Vehicle
                     </p>
                     <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
@@ -239,14 +239,14 @@ export function TrainTheModel() {
             <button
               type="button"
               onClick={resetLab}
-              className="inline-flex items-center gap-2 rounded-full border border-indigo-200/70 bg-white/80 px-5 py-3 font-mono text-sm font-semibold uppercase tracking-[0.12em] text-slate-700 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-ai hover:shadow-neon dark:border-indigo-500/20 dark:bg-slate-900/70 dark:text-slate-200"
+              className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-background-primary/80 px-5 py-3 font-mono text-sm font-bold uppercase tracking-[0.12em] text-text-secondary shadow-none backdrop-blur transition hover:scale-[1.02] hover:border-google-blue dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-200"
             >
               <RefreshCcw className="h-4 w-4" />
               Reset AI Lab
             </button>
           </div>
 
-          <div className="rounded-3xl border border-indigo-200/70 bg-white/75 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70">
+          <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
             <div className="flex items-center justify-between gap-3">
               <p className="font-display text-sm font-semibold text-slate-900 dark:text-white">
                 Lab feedback

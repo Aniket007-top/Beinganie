@@ -23,18 +23,18 @@ type LearningModuleProps = {
 
 const accentMap = {
   ai: {
-    chip: "bg-ai-soft text-ai border-ai/20",
-    panel: "from-ai/10 via-white to-white dark:from-ai/10 dark:via-slate-950 dark:to-slate-950",
+    chip: "bg-google-blue/10 text-google-blue border-google-blue/20",
+    panel: "from-google-blue/10 via-background-primary to-background-primary dark:from-google-blue/10 dark:via-slate-950 dark:to-slate-950",
     icon: BrainCircuit
   },
   iot: {
-    chip: "bg-iot-soft text-iot border-iot/20",
-    panel: "from-iot/10 via-white to-white dark:from-iot/10 dark:via-slate-950 dark:to-slate-950",
+    chip: "bg-google-green/10 text-google-green border-google-green/20",
+    panel: "from-google-green/10 via-background-primary to-background-primary dark:from-google-green/10 dark:via-slate-950 dark:to-slate-950",
     icon: CircuitBoard
   },
   robotics: {
-    chip: "bg-robotics-soft text-robotics border-robotics/20",
-    panel: "from-robotics/10 via-white to-white dark:from-robotics/10 dark:via-slate-950 dark:to-slate-950",
+    chip: "bg-google-yellow/10 text-google-yellow border-google-yellow/20",
+    panel: "from-google-yellow/10 via-background-primary to-background-primary dark:from-google-yellow/10 dark:via-slate-950 dark:to-slate-950",
     icon: Layers3
   }
 };
@@ -56,16 +56,16 @@ export function LearningModule({
   );
 
   return (
-    <section className="rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8">
+    <section className="rounded-[2rem] border border-border-subtle bg-background-primary p-6 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70 sm:p-8">
       <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <div className="space-y-5">
-          <div className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-sm font-semibold ${accentConfig.chip}`}>
+          <div className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-sm font-bold ${accentConfig.chip}`}>
             <AccentIcon className="h-4 w-4" />
             {eyebrow}
           </div>
 
           <div>
-            <h2 className="font-display text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-text-primary dark:text-white">
               {title}
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
@@ -73,10 +73,10 @@ export function LearningModule({
             </p>
           </div>
 
-          <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+          <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
             <div className="mb-3 flex items-center gap-3">
               <BookOpenCheck className="h-5 w-5 text-slate-700 dark:text-slate-200" />
-              <h3 className="font-display text-base font-semibold text-slate-950 dark:text-white">
+              <h3 className="font-display text-base font-semibold tracking-tight text-text-primary dark:text-white">
                 Current Focus
               </h3>
             </div>
@@ -89,7 +89,7 @@ export function LearningModule({
           </div>
         </div>
 
-        <div className={`rounded-[1.75rem] border border-indigo-200/70 bg-gradient-to-br ${accentConfig.panel} p-4 shadow-neon dark:border-indigo-500/20`}>
+        <div className={`rounded-[1.75rem] border border-border-subtle bg-gradient-to-br ${accentConfig.panel} p-4 shadow-none dark:border-slate-800`}>
           <div className="space-y-4">
             {levels.map((level) => {
               const isOpen = openLevel === level.id;
@@ -98,18 +98,18 @@ export function LearningModule({
                 <motion.div
                   layout
                   key={level.id}
-                  className="overflow-hidden rounded-3xl border border-indigo-200/70 bg-white/85 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/75"
+                  className="overflow-hidden rounded-[1.75rem] border border-border-subtle bg-background-primary/80 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/75"
                 >
                   <button
                     type="button"
                     onClick={() => setOpenLevel(isOpen ? "" : level.id)}
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-ai/5"
+                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-google-blue/5"
                   >
                     <div>
                       <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                         {level.audience}
                       </p>
-                      <h3 className="mt-1 font-display text-lg font-semibold text-slate-950 dark:text-white">
+                      <h3 className="mt-1 font-display text-lg font-semibold tracking-tight text-text-primary dark:text-white">
                         {level.label}
                       </h3>
                     </div>
@@ -131,7 +131,7 @@ export function LearningModule({
 
                       <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_0.8fr]">
                         <div>
-                          <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                          <p className="text-sm font-semibold text-text-primary dark:text-white">
                             Key learning highlights
                           </p>
                           <ul className="mt-3 space-y-2 text-sm leading-7 text-slate-600 dark:text-slate-300">
@@ -144,7 +144,7 @@ export function LearningModule({
                           </ul>
                         </div>
 
-                        <div className="rounded-2xl border border-indigo-200/70 bg-white/80 p-4 backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+                        <div className="rounded-[1.25rem] border border-border-subtle bg-background-primary/80 p-4 backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
                           <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                             Learn by doing
                           </p>

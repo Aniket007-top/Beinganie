@@ -12,11 +12,12 @@ const heroMetrics = [
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden rounded-[2rem] border border-indigo-200/70 bg-hero-grid px-6 py-16 shadow-glow dark:border-indigo-500/20 dark:bg-slate-950 sm:px-10 lg:px-12">
-      <div className="absolute inset-0 bg-cyber-grid bg-[size:36px_36px] opacity-40 [mask-image:linear-gradient(to_bottom,rgba(255,255,255,0.35),transparent_80%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(2,6,23,0.24),rgba(15,23,42,0.1))] dark:bg-[linear-gradient(135deg,rgba(2,6,23,0.55),rgba(2,6,23,0.15))]" />
-      <div className="absolute -left-24 top-10 h-56 w-56 rounded-full bg-ai/20 blur-3xl" />
-      <div className="absolute -right-24 top-24 h-56 w-56 rounded-full bg-iot/20 blur-3xl" />
+    <section className="relative overflow-hidden rounded-[2rem] border border-border-subtle bg-background-primary px-6 py-16 shadow-none dark:border-slate-800 dark:bg-slate-950 sm:px-10 lg:px-12">
+      {/* Subtle background gradients for visual interest, replacing heavy grid/glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(66,133,244,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(52,168,83,0.08),transparent_30%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(66,133,244,0.15),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(52,168,83,0.15),transparent_30%)]" />
+      
+      {/* Removed specific blur circles for a cleaner look, relying on overall gradient */}
+
       <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -24,13 +25,13 @@ export function HeroSection() {
           transition={{ duration: 0.55 }}
           className="relative z-10 space-y-8"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-slate-950/85 px-4 py-2 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300 shadow-sm">
+          <div className="inline-flex items-center gap-2 rounded-full border border-google-green/20 bg-surface-secondary/80 px-4 py-2 font-mono text-sm font-bold uppercase tracking-[0.15em] text-google-green shadow-none dark:bg-slate-950/85">
             <Sparkles className="h-4 w-4" />
             Professional, free, project-based deep-tech learning
           </div>
 
-          <div className="matrix-surface max-w-4xl rounded-[1.75rem] border border-emerald-400/20 p-6 shadow-neon sm:p-8">
-            <h1 className="matrix-title max-w-4xl font-display text-5xl font-normal leading-[0.95] text-emerald-300 sm:text-6xl lg:text-7xl">
+          <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-6 shadow-none dark:border-slate-800 sm:p-8">
+            <h1 className="max-w-4xl font-display text-5xl font-semibold leading-[1.1] tracking-[-0.02em] text-text-primary dark:text-white sm:text-6xl lg:text-7xl">
               Learn Future Technologies for Free - AI, IoT & Robotics
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
@@ -44,7 +45,7 @@ export function HeroSection() {
           <div className="flex flex-wrap gap-4">
             <Link
               href="#tracks"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-3 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-slate-950 transition hover:-translate-y-0.5 hover:bg-emerald-300"
+              className="inline-flex items-center justify-center rounded-full bg-google-blue px-6 py-3 font-mono text-sm font-bold uppercase tracking-[0.15em] text-white shadow-none transition hover:scale-[1.02] hover:bg-google-blue/90"
             >
               Start Learning
             </Link>
@@ -52,7 +53,7 @@ export function HeroSection() {
               href="https://drive.google.com/file/d/1L4JoGFUpEHVP1RVwZkXtDQOJHEBvqM-Z/view?usp=drivesdk"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-emerald-400/30 bg-slate-950/85 px-6 py-3 font-mono text-sm font-semibold uppercase tracking-[0.16em] text-emerald-200 shadow-neon transition hover:-translate-y-0.5 hover:border-emerald-300 hover:text-white"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border-subtle bg-background-primary/80 px-6 py-3 font-mono text-sm font-bold uppercase tracking-[0.15em] text-text-primary shadow-none transition hover:scale-[1.02] hover:border-google-blue dark:border-slate-800 dark:bg-slate-950/85 dark:text-slate-200"
             >
               <Download className="h-4 w-4" />
               Download AI Notes
@@ -63,9 +64,9 @@ export function HeroSection() {
             {heroMetrics.map((item) => (
               <div
                 key={item.label}
-                className="rounded-2xl border border-emerald-400/20 bg-slate-950/75 p-4 shadow-sm backdrop-blur"
+                className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary/80 p-4 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/75"
               >
-                <p className="font-display text-3xl font-normal text-emerald-300">
+                <p className="font-display text-3xl font-semibold text-google-blue dark:text-google-blue/80">
                   {item.value}
                 </p>
                 <p className="mt-1 text-sm text-slate-300">
@@ -82,9 +83,9 @@ export function HeroSection() {
           transition={{ duration: 0.55, delay: 0.1 }}
           className="relative z-10 grid gap-4"
         >
-          <div className="matrix-surface rounded-[1.75rem] border border-emerald-400/20 p-6 text-white shadow-neon">
-            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-ai/20 ring-1 ring-inset ring-ai/30">
-              <Orbit className="h-6 w-6 text-indigo-300" />
+          <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-6 text-white shadow-none dark:border-slate-800">
+            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-google-blue/10 ring-1 ring-inset ring-google-blue/30">
+              <Orbit className="h-6 w-6 text-google-blue" />
             </div>
             <h2 className="font-display text-3xl font-normal text-emerald-300">Mission Control</h2>
             <p className="mt-3 text-sm leading-7 text-slate-300">
@@ -131,13 +132,13 @@ function FeatureMiniCard({
   accent: "ai" | "iot" | "robotics";
 }) {
   const accents = {
-    ai: "bg-ai-soft text-ai",
-    iot: "bg-iot-soft text-iot",
-    robotics: "bg-robotics-soft text-robotics",
+    ai: "bg-google-blue/10 text-google-blue",
+    iot: "bg-google-green/10 text-google-green",
+    robotics: "bg-google-yellow/10 text-google-yellow",
   };
 
   return (
-    <div className="rounded-3xl border border-indigo-200/70 bg-white/75 p-5 shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-neon dark:border-indigo-500/20 dark:bg-slate-950/70">
+    <div className="rounded-[1.75rem] border border-border-subtle bg-background-primary/80 p-5 shadow-none backdrop-blur transition duration-300 hover:scale-[1.02] dark:border-slate-800 dark:bg-slate-950/70">
       <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl ring-1 ring-inset ring-white/40 ${accents[accent]}`}>
         <Icon className="h-5 w-5" />
       </div>

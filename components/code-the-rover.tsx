@@ -96,17 +96,17 @@ export function CodeTheRover() {
   }
 
   return (
-    <section className="relative overflow-hidden rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.14),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(249,115,22,0.15),transparent_30%)]" />
+    <section className="relative overflow-hidden rounded-[2rem] border border-border-subtle bg-background-primary p-6 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70 sm:p-8">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,188,4,0.1),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(251,188,4,0.1),transparent_30%)]" />
       <div className="relative grid gap-8 xl:grid-cols-[0.85fr_1.15fr]">
         <div className="space-y-5">
-          <div className="inline-flex items-center gap-2 rounded-full border border-robotics/20 bg-white/80 px-4 py-2 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-robotics shadow-sm dark:bg-slate-950/70">
+          <div className="inline-flex items-center gap-2 rounded-full border border-google-yellow/20 bg-background-primary/80 px-4 py-2 font-mono text-sm font-bold uppercase tracking-[0.15em] text-google-yellow shadow-none dark:bg-slate-950/70">
             <Trophy className="h-4 w-4" />
             Arcade Lab - Robotics
           </div>
 
           <div>
-            <h2 className="font-display text-3xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-4xl">
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-text-primary dark:text-white sm:text-4xl">
               Code the Rover
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
@@ -117,7 +117,7 @@ export function CodeTheRover() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+            <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                 Objective
               </p>
@@ -128,7 +128,7 @@ export function CodeTheRover() {
                 Use a sequence of commands to make the rover follow a safe path.
               </p>
             </div>
-            <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+            <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                 Skill
               </p>
@@ -141,7 +141,7 @@ export function CodeTheRover() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+          <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
             <p className="font-display text-sm font-semibold text-slate-900 dark:text-white">
               Mission rules
             </p>
@@ -153,7 +153,7 @@ export function CodeTheRover() {
             </ul>
           </div>
 
-          <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+          <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
             <div className="flex items-center justify-between gap-3">
               <p className="font-display text-sm font-semibold text-slate-900 dark:text-white">
                 Command queue
@@ -167,7 +167,7 @@ export function CodeTheRover() {
                 commands.map((command, index) => (
                   <span
                     key={`${command}-${index}`}
-                    className="inline-flex items-center rounded-full border border-robotics/20 bg-white/80 px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm backdrop-blur dark:border-robotics/30 dark:bg-slate-950/80 dark:text-slate-200"
+                    className="inline-flex items-center rounded-full border border-google-yellow/20 bg-background-primary/80 px-3 py-1.5 text-sm font-medium text-text-secondary shadow-none backdrop-blur dark:border-google-yellow/30 dark:bg-slate-950/80 dark:text-slate-200"
                   >
                     {labelForCommand(command)}
                   </span>
@@ -192,7 +192,7 @@ export function CodeTheRover() {
             <button
               type="button"
               onClick={executeCommands}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-robotics to-orange-500 px-5 py-3 font-mono text-sm font-semibold uppercase tracking-[0.12em] text-white shadow-neon transition hover:-translate-y-0.5 hover:from-orange-500 hover:to-amber-500"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-google-yellow px-5 py-3 font-mono text-sm font-bold uppercase tracking-[0.12em] text-white shadow-none transition hover:scale-[1.02] hover:bg-google-yellow/90"
             >
               <Play className="h-4 w-4" />
               Run Commands
@@ -204,7 +204,7 @@ export function CodeTheRover() {
                 setRover(start);
                 setStatus("Command queue cleared. Build a new route.");
               }}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-indigo-200/70 bg-white/80 px-5 py-3 font-mono text-sm font-semibold uppercase tracking-[0.12em] text-slate-700 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-robotics hover:shadow-neon dark:border-indigo-500/20 dark:bg-slate-900/70 dark:text-slate-200"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border-subtle bg-background-primary/80 px-5 py-3 font-mono text-sm font-bold uppercase tracking-[0.12em] text-text-secondary shadow-none backdrop-blur transition hover:scale-[1.02] hover:border-google-yellow dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-200"
             >
               <RotateCcw className="h-4 w-4" />
               Clear Queue
@@ -212,13 +212,13 @@ export function CodeTheRover() {
             <button
               type="button"
               onClick={resetBoard}
-              className="inline-flex items-center justify-center rounded-full border border-indigo-200/70 bg-white/80 px-5 py-3 font-mono text-sm font-semibold uppercase tracking-[0.12em] text-slate-700 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-robotics hover:shadow-neon dark:border-indigo-500/20 dark:bg-slate-900/70 dark:text-slate-200"
+              className="inline-flex items-center justify-center rounded-full border border-border-subtle bg-background-primary/80 px-5 py-3 font-mono text-sm font-bold uppercase tracking-[0.12em] text-text-secondary shadow-none backdrop-blur transition hover:scale-[1.02] hover:border-google-yellow dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-200"
             >
               Full Reset
             </button>
           </div>
 
-          <div className="rounded-[1.75rem] border border-indigo-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(255,247,237,0.8))] p-5 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-[linear-gradient(180deg,rgba(15,23,42,0.88),rgba(15,23,42,0.72))]">
+          <div className="rounded-[1.75rem] border border-border-subtle bg-background-primary/80 p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
             <div className="mb-4 flex items-center justify-between gap-4">
               <div>
                 <p className="font-display text-sm font-semibold text-slate-900 dark:text-white">
@@ -252,12 +252,12 @@ export function CodeTheRover() {
                     className={[
                       "flex aspect-square items-center justify-center rounded-2xl border text-xs font-semibold sm:text-sm",
                       isObstacle
-                        ? "border-slate-400 bg-[linear-gradient(180deg,#cbd5e1,#94a3b8)] text-slate-700 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100"
+                        ? "border-gray-300 bg-gray-200 text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
                         : isGoal
-                          ? "border-emerald-200 bg-[linear-gradient(180deg,#dcfce7,#bbf7d0)] text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/20 dark:text-emerald-300"
+                          ? "border-google-green/20 bg-google-green/10 text-google-green dark:border-google-green/30 dark:bg-google-green/20 dark:text-google-green/80"
                           : isStart
-                            ? "border-robotics/20 bg-amber-100 text-robotics dark:bg-amber-500/20"
-                            : "border-indigo-200/70 bg-white/80 text-slate-500 dark:border-indigo-500/20 dark:bg-slate-950/80 dark:text-slate-300"
+                            ? "border-google-yellow/20 bg-google-yellow/10 text-google-yellow dark:bg-google-yellow/20"
+                            : "border-border-subtle bg-background-primary/80 text-text-secondary dark:border-slate-800 dark:bg-slate-950/80 dark:text-slate-300"
                     ].join(" ")}
                   >
                     {isRover ? "R" : isObstacle ? "X" : isGoal ? "Goal" : isStart ? "Start" : ""}
@@ -267,7 +267,7 @@ export function CodeTheRover() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-indigo-200/70 bg-white/75 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70">
+          <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
             <div className="flex items-center justify-between gap-3">
               <p className="font-display text-sm font-semibold text-slate-900 dark:text-white">
                 Status

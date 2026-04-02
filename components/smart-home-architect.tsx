@@ -79,16 +79,16 @@ export function SmartHomeArchitect() {
   const mappedPercent = Math.round((Object.values(placements).filter(Boolean).length / 2) * 100);
 
   return (
-    <section className="relative overflow-hidden rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(5,150,105,0.16),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(20,184,166,0.14),transparent_28%)]" />
+    <section className="relative overflow-hidden rounded-[2rem] border border-border-subtle bg-background-primary p-6 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70 sm:p-8">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(52,168,83,0.1),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(52,168,83,0.1),transparent_28%)]" />
       <div className="relative grid gap-8 xl:grid-cols-[0.9fr_1.1fr]">
         <div className="space-y-5">
-          <div className="inline-flex items-center gap-2 rounded-full border border-iot/20 bg-white/80 px-4 py-2 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-iot shadow-sm dark:bg-slate-950/70">
+          <div className="inline-flex items-center gap-2 rounded-full border border-google-green/20 bg-background-primary/80 px-4 py-2 font-mono text-sm font-bold uppercase tracking-[0.15em] text-google-green shadow-none dark:bg-slate-950/70">
             <Home className="h-4 w-4" />
             Arcade Lab - IoT
           </div>
           <div>
-            <h2 className="font-display text-3xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-4xl">
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-text-primary dark:text-white sm:text-4xl">
               Smart Home Architect
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
@@ -99,7 +99,7 @@ export function SmartHomeArchitect() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+            <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                 System input
               </p>
@@ -110,7 +110,7 @@ export function SmartHomeArchitect() {
                 Each placement changes what the building can observe in real time.
               </p>
             </div>
-            <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+            <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                 System output
               </p>
@@ -123,7 +123,7 @@ export function SmartHomeArchitect() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-indigo-200/70 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
+          <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
             <div className="flex items-center justify-between gap-4">
               <div>
                 <p className="font-display text-sm font-semibold text-slate-900 dark:text-white">
@@ -153,7 +153,7 @@ export function SmartHomeArchitect() {
               <motion.div
                 key={room}
                 layout
-                className="rounded-[1.75rem] border border-indigo-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(236,253,245,0.8))] p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-[linear-gradient(180deg,rgba(15,23,42,0.88),rgba(15,23,42,0.72))]"
+                className="rounded-[1.75rem] border border-border-subtle bg-background-primary/80 p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70"
               >
                 <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-iot">
                   Zone
@@ -165,10 +165,10 @@ export function SmartHomeArchitect() {
                   <button
                     type="button"
                     onClick={() => placeSensor("temp", room)}
-                    className={`flex w-full items-center gap-3 rounded-2xl border px-4 py-3 text-left transition hover:-translate-y-0.5 ${
+                    className={`flex w-full items-center gap-3 rounded-[1.25rem] border px-4 py-3 text-left transition hover:scale-[1.01] ${
                       placements.temp === room
-                        ? "border-iot bg-iot-soft text-iot shadow-sm"
-                        : "border-indigo-200/70 bg-white/80 text-slate-700 dark:border-indigo-500/20 dark:bg-slate-950/80 dark:text-slate-200"
+                        ? "border-google-green bg-google-green/10 text-google-green shadow-none"
+                        : "border-border-subtle bg-background-primary/80 text-text-secondary dark:border-slate-800 dark:bg-slate-950/80 dark:text-slate-200"
                     }`}
                   >
                     <Thermometer className="h-4 w-4" />
@@ -180,10 +180,10 @@ export function SmartHomeArchitect() {
                   <button
                     type="button"
                     onClick={() => placeSensor("motion", room)}
-                    className={`flex w-full items-center gap-3 rounded-2xl border px-4 py-3 text-left transition hover:-translate-y-0.5 ${
+                    className={`flex w-full items-center gap-3 rounded-[1.25rem] border px-4 py-3 text-left transition hover:scale-[1.01] ${
                       placements.motion === room
-                        ? "border-iot bg-iot-soft text-iot shadow-sm"
-                        : "border-indigo-200/70 bg-white/80 text-slate-700 dark:border-indigo-500/20 dark:bg-slate-950/80 dark:text-slate-200"
+                        ? "border-google-green bg-google-green/10 text-google-green shadow-none"
+                        : "border-border-subtle bg-background-primary/80 text-text-secondary dark:border-slate-800 dark:bg-slate-950/80 dark:text-slate-200"
                     }`}
                   >
                     <Waves className="h-4 w-4" />
@@ -197,7 +197,7 @@ export function SmartHomeArchitect() {
             ))}
           </div>
 
-          <div className="rounded-3xl border border-indigo-200/70 bg-white/75 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70">
+          <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
             <div className="flex items-center justify-between gap-3">
               <p className="font-display text-sm font-semibold text-slate-900 dark:text-white">
                 Generated if-then rules
@@ -211,7 +211,7 @@ export function SmartHomeArchitect() {
                 rules.map((rule) => (
                   <div
                     key={rule}
-                    className="rounded-2xl border border-indigo-200/70 bg-white/80 px-4 py-3 backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70"
+                    className="rounded-[1.25rem] border border-border-subtle bg-background-primary/80 px-4 py-3 backdrop-blur dark:border-slate-800 dark:bg-slate-900/70"
                   >
                     {rule}
                   </div>
@@ -226,14 +226,14 @@ export function SmartHomeArchitect() {
             <button
               type="button"
               onClick={reset}
-              className="inline-flex items-center gap-2 rounded-full border border-indigo-200/70 bg-white/80 px-5 py-3 font-mono text-sm font-semibold uppercase tracking-[0.12em] text-slate-700 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-iot hover:shadow-neon dark:border-indigo-500/20 dark:bg-slate-900/70 dark:text-slate-200"
+              className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-background-primary/80 px-5 py-3 font-mono text-sm font-bold uppercase tracking-[0.12em] text-text-secondary shadow-none backdrop-blur transition hover:scale-[1.02] hover:border-google-green dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-200"
             >
               <RefreshCcw className="h-4 w-4" />
               Reset IoT Lab
             </button>
           </div>
 
-          <div className="rounded-3xl border border-indigo-200/70 bg-white/75 p-5 shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70">
+          <div className="rounded-[1.75rem] border border-border-subtle bg-surface-secondary p-5 shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
             <div className="flex items-center justify-between gap-3">
               <p className="font-display text-sm font-semibold text-slate-900 dark:text-white">
                 Lab feedback
