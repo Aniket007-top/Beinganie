@@ -6,11 +6,11 @@ export function MetricBadge({
   value: string;
 }) {
   return (
-    <div className="rounded-2xl border border-indigo-200/70 bg-white/80 px-4 py-3 text-center shadow-sm backdrop-blur dark:border-indigo-500/20 dark:bg-slate-900/70">
-      <p className="font-display text-xl font-semibold text-slate-950 dark:text-white">
+    <div className="rounded-[1.75rem] border border-border-subtle bg-background-primary/80 px-5 py-3 text-center shadow-none backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
+      <p className="font-display text-2xl font-semibold text-text-primary dark:text-white">
         {value}
       </p>
-      <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+      <p className="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-text-secondary dark:text-slate-400">
         {label}
       </p>
     </div>

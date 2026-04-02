@@ -15,9 +15,9 @@ type CategoryCardProps = {
 };
 
 const accentStyles = {
-  ai: "border-google-blue/20 bg-google-blue/10 text-google-blue",
-  iot: "border-google-green/20 bg-google-green/10 text-google-green",
-  robotics: "border-google-yellow/20 bg-google-yellow/10 text-google-yellow"
+  ai: "border-google-blue/20 bg-google-blue/10 text-google-blue", // M3 Blue
+  iot: "border-google-green/20 bg-google-green/10 text-google-green", // M3 Green
+  robotics: "border-google-yellow/20 bg-google-yellow/10 text-google-yellow" // M3 Yellow
 };
 
 export function CategoryCard({

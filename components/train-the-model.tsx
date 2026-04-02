@@ -185,7 +185,7 @@ export function TrainTheModel() {
                   <button
                     type="button"
                     onClick={() => handleLabel("fruit")}
-                    className="group rounded-[1.5rem] border border-border-subtle bg-background-primary/80 px-5 py-5 text-left shadow-none backdrop-blur transition hover:scale-[1.02] hover:border-google-blue dark:bg-slate-950/80"
+                    className="group rounded-[1.5rem] border border-border-subtle bg-background-primary/80 px-5 py-5 text-left shadow-none backdrop-blur transition hover:scale-[1.02] hover:border-google-blue dark:bg-slate-950/80" // M3 Button styling
                   >
                     <p className="font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-google-blue">
                       Label A
@@ -200,7 +200,7 @@ export function TrainTheModel() {
                   <button
                     type="button"
                     onClick={() => handleLabel("vehicle")}
-                    className="group rounded-[1.5rem] border border-border-subtle bg-background-primary/80 px-5 py-5 text-left shadow-none backdrop-blur transition hover:scale-[1.02] hover:border-google-blue dark:bg-slate-950/80"
+                    className="group rounded-[1.5rem] border border-border-subtle bg-background-primary/80 px-5 py-5 text-left shadow-none backdrop-blur transition hover:scale-[1.02] hover:border-google-blue dark:bg-slate-950/80" // M3 Button styling
                   >
                     <p className="font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-google-blue">
                       Label B

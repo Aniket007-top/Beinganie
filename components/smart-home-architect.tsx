@@ -158,7 +158,7 @@ export function SmartHomeArchitect() {
                 <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-iot">
                   Zone
                 </p>
-                <h3 className="mt-2 font-display text-lg font-semibold text-slate-950 dark:text-white">
+                <h3 className="mt-2 font-display text-lg font-semibold tracking-tight text-text-primary dark:text-white">
                   {roomLabels[room]}
                 </h3>
                 <div className="mt-4 space-y-3">

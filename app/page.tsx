@@ -12,6 +12,10 @@ import { SmartHomeArchitect } from "@/components/smart-home-architect";
 import { TrainTheModel } from "@/components/train-the-model";
 import { ValueCard } from "@/components/value-card";
 import { ResourceItem } from "@/components/resource-item";
+import { FigureCard } from "@/components/figure-card"; // Added import
+import { MetricBadge } from "@/components/metric-badge"; // Added import
+import { JourneyStep } from "@/components/journey-step"; // Added import
+import { AiBars, IotFlow, RoboticsLoop } from "@/components/visual-aids"; // Added import
 import { learningPaths, getLearningPath } from "@/lib/learning-paths";
 
 const categories = [
@@ -349,8 +353,8 @@ export default function HomePage() {
 
       {/* Google-style Shortcut Navigation Floating Bar */}
       <nav className="fixed bottom-8 left-1/2 z-50 flex -translate-x-1/2 items-center gap-1 rounded-full border border-border-subtle bg-background-primary/80 p-2 shadow-soft-elevation backdrop-blur-xl dark:border-slate-800/60 dark:bg-slate-950/80">
-        <div className="flex items-center px-3 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-400">
-          <Zap className="mr-2 h-3 w-3 fill-current" />
+        <div className="flex items-center px-3 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-google-blue dark:text-google-blue/80"> {/* M3 Blue */}
+          <Zap className="mr-2 h-3 w-3 fill-current text-google-blue" /> {/* M3 Blue */}
           Shortcuts
         </div>
         <div className="h-4 w-px bg-slate-200 dark:bg-slate-700" />

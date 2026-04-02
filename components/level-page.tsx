@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpen, LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 import { ChapterVisualPanel } from "@/components/chapter-visual-panel";
 import { SiteFooter } from "@/components/site-footer";

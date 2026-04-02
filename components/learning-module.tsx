@@ -131,7 +131,7 @@ export function LearningModule({
 
                       <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_0.8fr]">
                         <div>
-                          <p className="text-sm font-semibold text-text-primary dark:text-white">
+                          <p className="text-sm font-semibold tracking-tight text-text-primary dark:text-white">
                             Key learning highlights
                           </p>
                           <ul className="mt-3 space-y-2 text-sm leading-7 text-slate-600 dark:text-slate-300">

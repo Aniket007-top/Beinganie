@@ -296,10 +296,10 @@ function CommandButton({
   onClick: () => void;
 }) {
   return (
-    <button
+    <button // M3 Button styling
       type="button"
       onClick={onClick}
-      className="inline-flex items-center justify-center gap-2 rounded-2xl border border-indigo-200/70 bg-white/80 px-4 py-4 font-mono text-sm font-semibold uppercase tracking-[0.12em] text-slate-700 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-robotics hover:bg-amber-50 hover:text-robotics hover:shadow-neon dark:border-indigo-500/20 dark:bg-slate-950/80 dark:text-slate-200 dark:hover:bg-robotics/10"
+      className="inline-flex items-center justify-center gap-2 rounded-[1.25rem] border border-border-subtle bg-background-primary/80 px-4 py-4 font-mono text-sm font-bold uppercase tracking-[0.12em] text-text-secondary shadow-none backdrop-blur transition hover:scale-[1.02] hover:border-google-yellow dark:border-slate-800 dark:bg-slate-950/80 dark:text-slate-200 dark:hover:bg-google-yellow/10"
     >
       <Icon className="h-4 w-4" />
       {label}
