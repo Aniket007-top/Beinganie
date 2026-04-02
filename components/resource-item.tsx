@@ -1,9 +1,9 @@
-interface ResourceItemProps {
+import React from "react";
+
+interface ResourceItemProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   title: string;
   description: string;
   href: string;
-  className?: string; // Allow custom classNames
-  [key: string]: any; // Allow data-* attributes
 }
 
 export function ResourceItem({ title, description, href, className, ...props }: ResourceItemProps) {
