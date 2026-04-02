@@ -13,9 +13,7 @@
   const quizBlocks = document.querySelectorAll(".quiz-question");
   const progressButtons = document.querySelectorAll(".mark-complete");
   const downloadButtons = document.querySelectorAll(".notes-btn");
-  const searchableItems = document.querySelectorAll(".searchable");
-  const aiNotesUrl = "https://drive.google.com/file/d/1L4JoGFUpEHVP1RVwZkXtDQOJHEBvqM-Z/view?usp=drivesdk";
-  const iotNotesUrl = "https://drive.google.com/file/d/1za0AEI5Vb89kaoIFBaT87QVxQ-nEM6dM/view?usp=drivesdk";
+  const searchableItems = document.querySelectorAll(".searchable"); // Keep this, it's used by runSearch
 
   function loadTheme() {
     const theme = localStorage.getItem(storageKeys.theme);
@@ -66,33 +64,39 @@
     });
   }
 
-  function createNotes(type) {
-    if (type === "ai") {
-      window.open(aiNotesUrl, "_blank", "noopener,noreferrer");
+  // Function to create notes (either open URL or generate text file)
+  function createNotes(type, href) {
+    if (href && href !== "#") { // If a valid href is provided, open it
+      window.open(href, "_blank", "noopener,noreferrer");
       return;
     }
 
-    if (type === "iot") {
-      window.open(iotNotesUrl, "_blank", "noopener,noreferrer");
-      return;
-    }
-
+    // Fallback to generating text file if no valid href
     const contentMap = {
       ai: [
         "Beinganie AI Notes",
         "",
-        "Beginner: AI, ML, DL, neural networks, computer vision, NLP, and daily use cases.",
-        "Intermediate: supervised learning, unsupervised learning, reinforcement learning, model workflow, metrics, and mini projects.",
-        "Advanced: backpropagation, CNNs, transformers, LLM pipeline, MLOps, responsible AI, and future trends.",
+        "Beginner: AI, ML, DL, neural networks, computer vision, NLP, and daily use cases.", // Placeholder, ideally this would come from learning-paths.ts
+        "Intermediate: supervised learning, unsupervised learning, reinforcement learning, model workflow, metrics, and mini projects.", // Placeholder
+        "Advanced: backpropagation, CNNs, transformers, LLM pipeline, MLOps, responsible AI, and future trends.", // Placeholder
         "",
         "Free tools: Python, Jupyter, scikit-learn, PyTorch, TensorFlow, OpenCV, spaCy, Hugging Face."
+      ],
+      iot: [ // Added IoT content for dynamic generation
+        "Beinganie IoT Notes",
+        "",
+        "Beginner: sensors, actuators, microcontrollers, communication, and simple automation.",
+        "Intermediate: architecture, protocols (MQTT, HTTP), dashboards, security basics, edge processing.",
+        "Advanced: embedded systems, lifecycle management, edge AI, industrial IoT, observability, reliability.",
+        "",
+        "Free tools: Arduino IDE, PlatformIO, ESP32, MicroPython, Node-RED, Mosquitto, Grafana."
       ],
       robotics: [
         "Beinganie Robotics Notes",
         "",
-        "Beginner: components, motors, sensors, controllers, robot types, and applications.",
-        "Intermediate: kinematics, dynamics, feedback control, PID, localization, path planning.",
-        "Advanced: ROS 2, manipulation, SLAM, autonomy, planning, safety, human-robot interaction.",
+        "Beginner: components, motors, sensors, controllers, robot types, and applications.", // Placeholder
+        "Intermediate: kinematics, dynamics, feedback control, PID, localization, path planning.", // Placeholder
+        "Advanced: ROS 2, manipulation, SLAM, autonomy, planning, safety, human-robot interaction.", // Placeholder
         "",
         "Free tools: ROS 2, Webots, Gazebo, Arduino, Raspberry Pi, FreeCAD, Blender, OpenCV."
       ]
@@ -140,8 +144,11 @@
   });
 
   downloadButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      createNotes(button.dataset.download);
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+      const type = button.dataset.download;
+      const href = button.getAttribute('href'); // Get href from the button/link
+      createNotes(type, href);
     });
   });
 

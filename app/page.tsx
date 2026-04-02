@@ -1,6 +1,6 @@
-import type { ReactNode } from "react";
-import Image from "next/image";
-import { BrainCircuit, Cpu, Radar } from "lucide-react";
+import { BrainCircuit, Cpu, Radar, ChevronRight, Zap } from "lucide-react";
+import Image from "next/image"; // Import Image component
+import { ReactNode } from "react"; // Import ReactNode
 
 import { CategoryCard } from "@/components/category-card";
 import { CodeTheRover } from "@/components/code-the-rover";
@@ -12,6 +12,7 @@ import { SiteHeader } from "@/components/site-header";
 import { TrainTheModel } from "@/components/train-the-model";
 import { ValueCard } from "@/components/value-card";
 import { ResourceItem } from "@/components/resource-item";
+import { learningPaths, getLearningPath } from "@/lib/learning-paths";
 
 const categories = [
   {
@@ -55,42 +56,79 @@ const categories = [
   }
 ];
 
+const shortcuts = [
+  { name: "AI Track", href: "#ai-curriculum" },
+  { name: "IoT Track", href: "#iot-curriculum" },
+  { name: "Robotics", href: "#robotics-curriculum" },
+  { name: "Arcade Labs", href: "#arcade-lab" },
+];
+
 export default function HomePage() {
+  // Fetch learning path data for each module
+  const aiLearningPath = getLearningPath("ai");
+  const iotLearningPath = getLearningPath("iot");
+  const roboticsLearningPath = getLearningPath("robotics");
   return (
-    <main className="min-h-screen bg-slate-50 px-3 py-4 text-slate-900 dark:bg-slate-950 dark:text-slate-50 sm:px-6">
+    <main className="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50">
       <SiteHeader />
 
-      <div className="mx-auto flex max-w-7xl flex-col gap-8 pb-14">
-        <HeroSection />
+      <div className="mx-auto flex max-w-7xl flex-col gap-16 px-4 pb-24 pt-8 sm:px-6 lg:gap-24">
+        {/* Hero Section - Centered and Clean */}
+        <section className="flex flex-col items-center text-center">
+          <HeroSection />
+        </section>
 
+        {/* Tracks Section - Bento Grid Style */}
         <section
           id="tracks"
-          className="rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8"
+          className="space-y-10"
         >
-          <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-3xl">
-              <p className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-ai">
-                Learning Tracks
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
-                Explore structured pathways built for depth
-              </h2>
-              <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
-                Each domain is designed as a three-level curriculum, from
-                school-friendly explanation to engineer-grade systems thinking.
-              </p>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-3">
-              <MetricBadge label="Tracks" value="3" />
-              <MetricBadge label="Level Routes" value="9" />
-              <MetricBadge label="Arcade Labs" value="3" />
-            </div>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-indigo-600 dark:text-indigo-400">
+              Learning Tracks
+            </p>
+            <h2 className="mt-4 font-display text-4xl font-medium tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+              Explore structured pathways
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+              Move from beginner concepts to engineer-grade systems thinking with our curated modules.
+            </p>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-3">
             {categories.map((category) => (
               <CategoryCard key={category.title} {...category} />
             ))}
+          </div>
+
+          <div className="flex justify-center gap-4">
+            <MetricBadge label="Tracks" value="3" />
+            <MetricBadge label="Level Routes" value="9" />
+            <MetricBadge label="Arcade Labs" value="3" />
+          </div>
+        </section>
+
+        {/* Visual Classroom - Wide Layout */}
+        <section className="space-y-12 rounded-[3rem] bg-slate-50 py-16 dark:bg-slate-900/50">
+          <div className="px-8 text-center">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-emerald-600">
+              Visual Classroom
+            </p>
+            <h2 className="mt-4 font-display text-4xl font-medium text-slate-950 dark:text-white">
+              System-level visualization
+            </h2>
+          </div>
+
+          <div className="grid gap-8 px-8 lg:grid-cols-3">
+            <FigureCard title="AI learning pipeline" description="Data quality to deployment." accent="ai" image="https://commons.wikimedia.org/wiki/Special:Redirect/file/Artificial%20neural%20network.svg" imageAlt="Artificial neural network diagram" imageSource="https://commons.wikimedia.org/wiki/File:Artificial_neural_network.svg">
+              <AiBars />
+            </FigureCard>
+            <FigureCard title="IoT architecture flow" description="Sensing to cloud action." accent="iot" image="https://commons.wikimedia.org/wiki/Special:Redirect/file/Internet%20of%20Things.svg" imageAlt="Internet of Things architecture illustration" imageSource="https://commons.wikimedia.org/wiki/File:Internet_of_Things.svg">
+              <IotFlow />
+            </FigureCard>
+            <FigureCard title="Robotics control loop" description="Perception and movement." accent="robotics" image="https://commons.wikimedia.org/wiki/Special:Redirect/file/Controlling%20robotic%20arm%20ESA15746126.jpeg" imageAlt="Robotic arm photograph" imageSource="https://commons.wikimedia.org/wiki/File:Controlling_robotic_arm_ESA15746126.jpeg">
+              <RoboticsLoop />
+            </FigureCard>
           </div>
         </section>
 
@@ -145,215 +183,64 @@ export default function HomePage() {
           </aside>
         </section>
 
-        <section className="rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8">
-          <div className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-3xl">
-              <p className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-emerald-500">
-                Visual Classroom
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-normal tracking-wide text-slate-950 dark:text-white">
-                Learn with diagrams, process visuals, and system snapshots
-              </h2>
-              <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
-                Strong teaching is easier when learners can see the system. These
-                visual panels combine free web-hosted diagrams with simple graph-style
-                summaries to show how AI pipelines, IoT architecture, and robotics
-                control loops work.
-              </p>
-            </div>
-          </div>
+        <div id="ai-curriculum" className="scroll-mt-20">
+          {aiLearningPath && (
+            <LearningModule
+              eyebrow={aiLearningPath.shortTitle + " Curriculum"}
+              title={aiLearningPath.heroTitle}
+              description={aiLearningPath.heroDescription}
+              accent={aiLearningPath.accent}
+              levels={aiLearningPath.levels.map((l) => ({
+                id: l.id,
+                label: l.level,
+                audience: l.style,
+                summary: l.summary,
+                highlights: l.sections.flatMap((s) => s.bullets),
+                project: l.project,
+              }))}
+            />
+          )}
+        </div>
 
-          <div className="figure-grid lg:grid-cols-3">
-            <FigureCard
-              title="AI learning pipeline"
-              description="Students can see how data quality, model design, evaluation, and deployment all connect in one system."
-              image="https://commons.wikimedia.org/wiki/Special:Redirect/file/Artificial%20neural%20network.svg"
-              imageAlt="Artificial neural network diagram"
-              imageSource="https://commons.wikimedia.org/wiki/File:Artificial_neural_network.svg"
-              accent="ai"
-            >
-              <AiBars />
-            </FigureCard>
-            <FigureCard
-              title="IoT architecture flow"
-              description="This helps learners understand that IoT is not just a sensor, but a full chain from sensing to cloud insight and user action."
-              image="https://commons.wikimedia.org/wiki/Special:Redirect/file/Internet%20of%20Things.svg"
-              imageAlt="Internet of Things architecture illustration"
-              imageSource="https://commons.wikimedia.org/wiki/File:Internet_of_Things.svg"
-              accent="iot"
-            >
-              <IotFlow />
-            </FigureCard>
-            <FigureCard
-              title="Robotics control and motion"
-              description="A robot becomes easier to understand when students can map perception, planning, control, and movement as one loop."
-              image="https://commons.wikimedia.org/wiki/Special:Redirect/file/Controlling%20robotic%20arm%20ESA15746126.jpeg"
-              imageAlt="Robotic arm photograph"
-              imageSource="https://commons.wikimedia.org/wiki/File:Controlling_robotic_arm_ESA15746126.jpeg"
-              accent="robotics"
-            >
-              <RoboticsLoop />
-            </FigureCard>
-          </div>
-        </section>
+        <div id="iot-curriculum" className="scroll-mt-20">
+          {iotLearningPath && (
+            <LearningModule
+              eyebrow={iotLearningPath.shortTitle + " Curriculum"}
+              title={iotLearningPath.heroTitle}
+              description={iotLearningPath.heroDescription}
+              accent={iotLearningPath.accent}
+              levels={iotLearningPath.levels.map((l) => ({
+                id: l.id,
+                label: l.level,
+                audience: l.style,
+                summary: l.summary,
+                highlights: l.sections.flatMap((s) => s.bullets),
+                project: l.project,
+              }))}
+            />
+          )}
+        </div>
 
-        <LearningModule
-          eyebrow="AI Curriculum"
-          title="Artificial Intelligence roadmap from basics to engineering systems"
-          description="This reusable module structure organizes the Beinganie curriculum into layered learning experiences. The AI path starts with intuitive pattern recognition and grows toward deep learning, LLM internals, model pipelines, evaluation, and responsible deployment."
-          accent="ai"
-          levels={[
-            {
-              id: "ai-beginner",
-              label: "Beginner Level",
-              audience: "TGT Style",
-              summary:
-                "Use plain language, storytelling, and daily-life analogies to explain what AI is, how machines learn from examples, and where students already interact with AI today.",
-              highlights: [
-                "Difference between AI, ML, and Deep Learning",
-                "Image recognition, voice assistants, recommendation systems",
-                "Training data and prediction as a basic logic flow"
-              ],
-              project:
-                "Create a simple classification activity using labeled examples like fruit images or handwritten digits."
-            },
-            {
-              id: "ai-intermediate",
-              label: "Intermediate Level",
-              audience: "PGT Style",
-              summary:
-                "Introduce supervised and unsupervised learning, model evaluation, feature engineering, neural network intuition, and practical workflows for training and testing systems.",
-              highlights: [
-                "Data cleaning, train-validation-test split, model metrics",
-                "Regression, classification, decision trees, CNN intuition",
-                "Case studies in healthcare, agriculture, and education"
-              ],
-              project:
-                "Build a small sentiment analysis or image classification prototype using free tools and open datasets."
-            },
-            {
-              id: "ai-advanced",
-              label: "Advanced Level",
-              audience: "Engineer Style",
-              summary:
-                "Go deep into backpropagation, optimization, transformer architecture, LLM workflows, MLOps, model serving, observability, and industrial AI design patterns.",
-              highlights: [
-                "Neural network internals and transformer attention flow",
-                "LLM pretraining, fine-tuning, retrieval, and inference",
-                "Bias mitigation, deployment strategy, and production monitoring"
-              ],
-              project:
-                "Design an end-to-end AI system architecture from dataset pipeline to serving and feedback monitoring."
-            }
-          ]}
-        />
+        <div id="robotics-curriculum" className="scroll-mt-20">
+          {roboticsLearningPath && (
+            <LearningModule
+              eyebrow={roboticsLearningPath.shortTitle + " Curriculum"}
+              title={roboticsLearningPath.heroTitle}
+              description={roboticsLearningPath.heroDescription}
+              accent={roboticsLearningPath.accent}
+              levels={roboticsLearningPath.levels.map((l) => ({
+                id: l.id,
+                label: l.level,
+                audience: l.style,
+                summary: l.summary,
+                highlights: l.sections.flatMap((s) => s.bullets),
+                project: l.project,
+              }))}
+            />
+          )}
+        </div>
 
-        <LearningModule
-          eyebrow="IoT Curriculum"
-          title="Internet of Things pathway for connected systems and edge intelligence"
-          description="The same component supports IoT learning layers, moving from simple device logic toward sensor networks, message protocols, edge processing, and scalable architecture decisions."
-          accent="iot"
-          levels={[
-            {
-              id: "iot-beginner",
-              label: "Beginner Level",
-              audience: "TGT Style",
-              summary:
-                "Explain IoT as physical objects that can sense, communicate, and respond. Keep examples grounded in homes, farms, and schools.",
-              highlights: [
-                "What sensors, actuators, and microcontrollers do",
-                "Smart bulb, smart irrigation, and weather station examples",
-                "Simple if-then automation logic"
-              ],
-              project:
-                "Map a smart classroom where sensors collect information and devices react to it."
-            },
-            {
-              id: "iot-intermediate",
-              label: "Intermediate Level",
-              audience: "PGT Style",
-              summary:
-                "Cover controller logic, common protocols, dashboards, edge processing, and practical system flows using Arduino, ESP32, and cloud services.",
-              highlights: [
-                "WiFi, Bluetooth, MQTT, HTTP, and event-driven design",
-                "Device to cloud data pipelines and telemetry dashboards",
-                "Safety, authentication, and firmware update basics"
-              ],
-              project:
-                "Design a motion alert or environmental monitoring system with a dashboard and alert rule."
-            },
-            {
-              id: "iot-advanced",
-              label: "Advanced Level",
-              audience: "Engineer Style",
-              summary:
-                "Explore low-power architectures, edge AI, secure provisioning, fleet management, observability, digital twins, and industrial IoT use cases.",
-              highlights: [
-                "Embedded system constraints and protocol tradeoffs",
-                "TinyML, edge inference, and industrial telemetry pipelines",
-                "Secure boot, provisioning, and lifecycle management"
-              ],
-              project:
-                "Architect a scalable IoT deployment for agriculture, manufacturing, or public infrastructure."
-            }
-          ]}
-        />
-
-        <LearningModule
-          eyebrow="Robotics Curriculum"
-          title="Robotics curriculum centered on movement, control, perception, and autonomy"
-          description="Robotics at Beinganie combines hardware thinking with software logic. Learners progress from simple motion control to feedback systems, planning, ROS-style architectures, and real-world robot applications."
-          accent="robotics"
-          levels={[
-            {
-              id: "robotics-beginner",
-              label: "Beginner Level",
-              audience: "TGT Style",
-              summary:
-                "Teach robotics through relatable machines like vacuum bots, line followers, and delivery robots, focusing on how sensors, motors, and control units work together.",
-              highlights: [
-                "Robot body, sensors, motors, battery, and controller roles",
-                "Difference between manual machines and autonomous robots",
-                "Simple sense-think-act mental model"
-              ],
-              project:
-                "Draw and explain a line-following robot with labeled parts and a basic control idea."
-            },
-            {
-              id: "robotics-intermediate",
-              label: "Intermediate Level",
-              audience: "PGT Style",
-              summary:
-                "Introduce kinematics, sensor feedback, path planning, and PID-style correction while keeping the logic accessible through applied examples.",
-              highlights: [
-                "Motion planning, obstacle avoidance, and state feedback",
-                "Localization, trajectory thinking, and task sequencing",
-                "Small rover, arm, and maze-solving case studies"
-              ],
-              project:
-                "Model a delivery rover workflow including sensing, route choice, and error correction."
-            },
-            {
-              id: "robotics-advanced",
-              label: "Advanced Level",
-              audience: "Engineer Style",
-              summary:
-                "Move into autonomy stacks, ROS 2 concepts, SLAM, manipulation, control architecture, simulation, and human-robot interaction design.",
-              highlights: [
-                "Perception, localization, planning, and actuator coordination",
-                "ROS nodes, messages, simulation, and systems integration",
-                "Industrial robots, medical systems, logistics, and field robotics"
-              ],
-              project:
-                "Design a modular robotics stack for an autonomous rover, warehouse robot, or inspection platform."
-            }
-          ]}
-        />
-
-        <section
-          id="dashboard"
-          className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]"
-        >
+        <section id="dashboard" className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="rounded-[2rem] border border-indigo-200/70 bg-white/75 p-6 shadow-neon backdrop-blur dark:border-indigo-500/20 dark:bg-slate-950/70 sm:p-8">
             <p className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
               Platform Direction
@@ -396,6 +283,7 @@ export default function HomePage() {
                 title="AI Notes"
                 description="Professional notes archive linked for direct learner access."
                 href="https://drive.google.com/file/d/1L4JoGFUpEHVP1RVwZkXtDQOJHEBvqM-Z/view?usp=drivesdk"
+                {...({ className: "notes-btn", "data-download": "ai" } as any)}
               />
               <ResourceItem
                 title="Curriculum Components"
@@ -406,6 +294,19 @@ export default function HomePage() {
                 title="Arcade Lab"
                 description="Play the AI trainer, IoT architect, and Robotics rover challenge."
                 href="#arcade-lab"
+              />
+              {/* Add IoT Notes and Robotics Notes */}
+              <ResourceItem
+                title="IoT Notes"
+                description="Professional notes archive linked for direct learner access."
+                href="https://drive.google.com/file/d/1za0AEI5Vb89kaoIFBaT87QVxQ-nEM6dM/view?usp=drivesdk"
+                {...({ className: "notes-btn", "data-download": "iot" } as any)}
+              />
+              <ResourceItem
+                title="Robotics Notes"
+                description="Generated notes based on curriculum content."
+                href="#" // No direct download link, will generate text file
+                {...({ className: "notes-btn", "data-download": "robotics" } as any)}
               />
               <ResourceItem
                 title="Free Hosting"
@@ -445,10 +346,29 @@ export default function HomePage() {
 
         <SiteFooter />
       </div>
+
+      {/* Google-style Shortcut Navigation Floating Bar */}
+      <nav className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-1 rounded-full border border-slate-200 bg-white/90 p-1.5 shadow-2xl backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90">
+        <div className="flex items-center px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-indigo-500">
+          <Zap className="mr-2 h-3 w-3 fill-current" />
+          Shortcuts
+        </div>
+        <div className="h-4 w-px bg-slate-200 dark:bg-slate-800" />
+        {shortcuts.map((link) => (
+          <a
+            key={link.name}
+            href={link.href}
+            className="rounded-full px-4 py-2 text-xs font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
+          >
+            {link.name}
+          </a>
+        ))}
+      </nav>
     </main>
   );
 }
 
+// Moved these components outside HomePage for better structure
 function FigureCard({
   title,
   description,
