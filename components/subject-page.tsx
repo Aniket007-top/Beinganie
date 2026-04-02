@@ -2,38 +2,13 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpen, LucideIcon } from "lucide-react";
 
 import { ChapterVisualPanel } from "@/components/chapter-visual-panel";
+import { ResourceItem } from "@/components/resource-item";
+import { ACCENT_CLASS_MAP } from "@/lib/constants";
 import { SiteFooter } from "@/components/site-footer";
 import { getLevelSlug, type LearningPath } from "@/lib/learning-paths";
 
-const accentClassMap = {
-  ai: {
-    chip: "border-google-blue/20 bg-google-blue/10 text-google-blue",
-    button: "bg-google-blue hover:bg-google-blue/90 text-white",
-    soft: "bg-google-blue/10 text-google-blue border-google-blue/20",
-    shell:
-      "border-border-subtle bg-background-primary dark:border-slate-800 dark:bg-slate-950/70", // Simplified shell
-    label: "text-google-blue"
-  },
-  iot: {
-    chip: "border-google-green/20 bg-google-green/10 text-google-green",
-    button: "bg-google-green hover:bg-google-green/90 text-white",
-    soft: "bg-google-green/10 text-google-green border-google-green/20",
-    shell:
-      "border-border-subtle bg-background-primary dark:border-slate-800 dark:bg-slate-950/70", // Simplified shell
-    label: "text-google-green"
-  },
-  robotics: {
-    chip: "border-google-yellow/20 bg-google-yellow/10 text-google-yellow",
-    button: "bg-google-yellow hover:bg-google-yellow/90 text-white",
-    soft: "bg-google-yellow/10 text-google-yellow border-google-yellow/20",
-    shell:
-      "border-border-subtle bg-background-primary dark:border-slate-800 dark:bg-slate-950/70", // Simplified shell
-    label: "text-google-yellow"
-  }
-};
-
 export function SubjectPage({ path }: { path: LearningPath }) {
-  const accent = accentClassMap[path.accent];
+  const accent = ACCENT_CLASS_MAP[path.accent];
   const Icon: LucideIcon = path.icon;
 
   return (
@@ -240,24 +215,12 @@ export function SubjectPage({ path }: { path: LearningPath }) {
 
         <div className="grid gap-5 lg:grid-cols-3">
           {path.resources.map((resource) => (
-            <a
+            <ResourceItem
               key={resource.title}
+              title={resource.title}
+              description={resource.description}
               href={resource.href}
-              target={resource.href.startsWith("http") ? "_blank" : undefined}
-              rel={resource.href.startsWith("http") ? "noreferrer" : undefined}
-              className="group rounded-[1.75rem] border border-border-subtle bg-background-primary/80 p-5 shadow-none backdrop-blur transition hover:scale-[1.02] hover:border-google-blue/40 dark:border-slate-800 dark:bg-slate-900/70"
-            >
-              <h3 className="font-display text-lg font-semibold tracking-tight text-text-primary dark:text-white">
-                {resource.title}
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-                {resource.description}
-              </p>
-              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-google-blue dark:text-google-blue/80">
-                Explore
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-              </span>
-            </a>
+            />
           ))}
         </div>
       </section>

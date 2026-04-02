@@ -287,7 +287,8 @@ export default function HomePage() {
                 title="AI Notes"
                 description="Professional notes archive linked for direct learner access."
                 href="https://drive.google.com/file/d/1L4JoGFUpEHVP1RVwZkXtDQOJHEBvqM-Z/view?usp=drivesdk"
-                {...({ className: "notes-btn", "data-download": "ai" } as any)}
+                className="notes-btn"
+                data-download="ai"
               />
               <ResourceItem
                 title="Curriculum Components"
@@ -304,13 +305,15 @@ export default function HomePage() {
                 title="IoT Notes"
                 description="Professional notes archive linked for direct learner access."
                 href="https://drive.google.com/file/d/1za0AEI5Vb89kaoIFBaT87QVxQ-nEM6dM/view?usp=drivesdk"
-                {...({ className: "notes-btn", "data-download": "iot" } as any)}
+                className="notes-btn"
+                data-download="iot"
               />
               <ResourceItem
                 title="Robotics Notes"
                 description="Generated notes based on curriculum content."
                 href="#" // No direct download link, will generate text file
-                {...({ className: "notes-btn", "data-download": "robotics" } as any)}
+                className="notes-btn"
+                data-download="robotics"
               />
               <ResourceItem
                 title="Free Hosting"
