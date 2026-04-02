@@ -214,7 +214,7 @@ function IotVisualGraph({ index }: { index: number }) {
               {step}
             </div>
             {stepIndex < flows.length - 1 ? (
-              <div className="h-px w-6 bg-gradient-to-r from-iot to-emerald-300" />
+              <div className="h-px w-6 bg-gradient-to-r from-google-green to-emerald-300" />
             ) : null}
           </div>
         ))}
@@ -231,15 +231,15 @@ function RoboticsVisualGraph({ index }: { index: number }) {
   ][index % 3];
 
   return (
-    <div className="rounded-2xl border border-indigo-200/70 bg-white/70 p-4 dark:border-indigo-500/20 dark:bg-slate-900/70">
-      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-robotics">
+    <div className="rounded-[1.25rem] border border-border-subtle bg-surface-secondary p-4 dark:border-slate-800 dark:bg-slate-900/70">
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-google-yellow">
         Robotics loop
       </p>
       <div className="mt-4 grid grid-cols-2 gap-3">
         {grids.map((item) => (
           <div
             key={item}
-            className="rounded-2xl border border-robotics/20 bg-robotics-soft px-4 py-4 text-center font-mono text-xs uppercase tracking-[0.16em] text-robotics"
+            className="rounded-[1.25rem] border border-google-yellow/20 bg-google-yellow/10 px-4 py-4 text-center font-mono text-xs uppercase tracking-[0.16em] text-google-yellow"
           >
             {item}
           </div>
